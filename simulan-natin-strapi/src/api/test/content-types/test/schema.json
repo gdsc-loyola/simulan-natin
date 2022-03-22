@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "test_collection_types",
+  "collectionName": "tests",
   "info": {
-    "singularName": "test-collection-type",
-    "pluralName": "test-collection-types",
-    "displayName": "test-collection-type"
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "test"
   },
   "options": {
     "draftAndPublish": true

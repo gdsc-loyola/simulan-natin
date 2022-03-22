@@ -1,15 +1,16 @@
 <template>
+  <div>
     <h1>Hello World</h1>
     <router-view></router-view>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: 'App',
   components: {
     
-  }
+  },
 }
 </script>
 
@@ -23,3 +24,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
