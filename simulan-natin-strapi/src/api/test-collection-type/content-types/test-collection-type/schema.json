@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_collection_types",
+  "info": {
+    "singularName": "test-collection-type",
+    "pluralName": "test-collection-types",
+    "displayName": "test-collection-type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testTextField": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}
