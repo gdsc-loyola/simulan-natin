@@ -16,12 +16,24 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "AvenirNext", "CoolBritannia";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: local("AvenirNext"),
+   url(./fonts/AvenirNextLTPro/AvenirNextLTPro-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "CoolBritannia";
+  src: local("CoolBritannia"),
+   url(./fonts/CoolBritannia/CoolBritannia-Sans.otf) format("opentype");
 }
 </style>
 
