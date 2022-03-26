@@ -23,7 +23,6 @@ export default {
   font-family: "AvenirNext";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   
   /* Simulan Natin 2022 Colors/Black (#333333) */
   color: #333333;
@@ -101,6 +100,7 @@ sub {
 }
 
 .al-medium {
+  font-family: "AvenirNext";
   font-weight: 700;
 }
 
@@ -121,6 +121,18 @@ sub {
   color: #342A92 !important;
 }
 
+.al-bg-primary-red {
+  background-color: #FF0016 !important;
+}
+
+.al-bg-primary-yellow {
+  background-color: #FFE300 !important;
+}
+
+.al-bg-primary-blue {
+  background-color: #342A92 !important;
+}
+
 /* override bootstrap classes - direct attribute change*/
 .bg-light {
   /* Simulan Natin 2022 Colors/Before White (#FAFAFA) */
@@ -134,9 +146,98 @@ sub {
   min-height: 96px !important;
 }
 
-.al-container-fluid {
+.al-searchbar {
+  font-size: 24px !important;
+  line-height: 32px !important;
+  font-family: "AvenirNext" !important;
+  font-weight: 700 !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  padding-left: 24px !important;
+}
+
+.al-filter-button {
+  background-color: #342A92 !important;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "AvenirNext-Bold";
+  color: #FFFFFF !important;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.al-inline-block {
+  display: inline-block !important;
+}
+
+.al-padding-h120 {
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+  margin: 0 !important;
+}
+
+.al-padding-h80 {
   padding-left: 80px !important;
   padding-right: 80px !important;
+  margin: 0 !important;
+}
+
+.al-padding-h20 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin: 0 !important;
+}
+
+.al-padding-v96 {
+  padding-top: 96px !important;
+  padding-bottom: 96px !important;
+  margin: 0 !important;
+}
+
+.al-padding-v12 {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  margin: 0 !important;
+}
+
+.al-padding-v2 {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  margin: 0 !important;
+}
+
+.al-container-h670max {
+  display: block;
+  max-width: 670px;
+}
+
+.al-container-v64max {
+  display: block !important;
+  max-height: 64px !important;
+}
+
+.al-space-v40 {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.al-space-h32 {
+  display: inline !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* own custom styles */
+.al-representatives-bg {
+  background-image: url('assets/RepresentativesProfilesBG.png');
+  background-repeat: no-repeat;
+  max-width: 100%;
+  /* background-attachment: fixed;
+  background-position-y: 90px; */
+  background-position-y: -9px;
+  background-size: 100%;
 }
 </style>
 

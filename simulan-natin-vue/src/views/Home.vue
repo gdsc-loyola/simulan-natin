@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="text-align: center;">
         <h1>You are in the Home page</h1>
         <br><br>
         <h1 class="al-bold">Bold</h1>

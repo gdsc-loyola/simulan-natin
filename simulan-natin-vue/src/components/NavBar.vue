@@ -1,6 +1,6 @@
 <template>
 <nav class="al-navbar navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid al-container-fluid">
+  <div class="container-fluid al-padding-h80">
     <a class="navbar-brand" @click="goToHome()">
       <img src="../assets/SimulanNatin2022HorizontalLogosBlue.png" alt="SimulanNatin2022BLLogo" width="193" height="43">
     </a>
@@ -9,17 +9,17 @@
     </button>
     <div class="collapse navbar-collapse al-bold" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item pe-1">
+        <li class="nav-item al-padding-h20 al-padding-v2">
             <button type="button" @click="goToRepresentatives()" class="btn btn-light">
                 <a class="nav-link al-body al-font-primary-blue">Representatives</a>
             </button>
         </li>
-        <li class="nav-item pe-1">
+        <li class="nav-item al-padding-h20 al-padding-v2">
             <button type="button" @click="goToConventions()" class="btn btn-light">
                 <a class="nav-link al-body al-font-primary-blue">Conventions</a>
             </button>
         </li>
-        <li class="nav-item pe-1">
+        <li class="nav-item al-padding-h20 al-padding-v2">
             <button type="button" @click="goToAbout()" class="btn btn-light">
                 <a class="nav-link al-body al-font-primary-blue">About</a>
             </button>
