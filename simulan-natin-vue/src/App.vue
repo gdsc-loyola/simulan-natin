@@ -118,7 +118,7 @@ sub {
 }
 
 .al-font-primary-blue {
-  color: #342A92 !important;
+  color: #293C92 !important;
 }
 
 .al-bg-primary-red {
@@ -130,7 +130,7 @@ sub {
 }
 
 .al-bg-primary-blue {
-  background-color: #342A92 !important;
+  background-color: #293C92 !important;
 }
 
 /* override bootstrap classes - direct attribute change*/
@@ -157,7 +157,7 @@ sub {
 }
 
 .al-filter-button {
-  background-color: #342A92 !important;
+  background-color: #293C92 !important;
   font-size: 18px;
   line-height: 22px;
   font-family: "AvenirNext-Bold";
@@ -166,6 +166,18 @@ sub {
   padding-right: 13px;
   padding-top: 7px;
   padding-bottom: 7px;
+}
+
+.al-representative-card {
+  border: 2px solid #293C92 !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 588px;
+  height: 144px;
 }
 
 .al-inline-block {
@@ -240,4 +252,3 @@ sub {
   background-size: 100%;
 }
 </style>
-
