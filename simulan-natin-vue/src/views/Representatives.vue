@@ -1,22 +1,35 @@
 <template>
-    <div class="al-representatives-bg al-padding-h120 al-padding-v96">
-      <h1 class="al-bold al-padding-v12">Representative Database</h1>
-      <h3 class="al-medium al-container-h670max al-padding-v12">
-          With information on 52 candidates across multiple regions in
-          the country, find a representative that aligns with your
-          advocacy* as we work towards a better future.
-      </h3>
-      <sub class="al-medium al-italic al-container-h670max al-padding-v12">
-          *The data that the team has collated is the main basis for 
-          the representatives’ respective platforms, primarily basing 
-          from the laws they have enacted.
-      </sub>
-      <div class="al-space-v40"></div>
-      <SearchBar/>
-      <FilterButton/>
-      <div class="al-space-h32"></div>
-      <FilterButton/>
-      <RepresentativeCard/>
+    <div>
+      <section class="al-representatives-top">
+        <h1 class="al-bold al-padding-v12">Representative Database</h1>
+        <h3 class="al-medium al-container-h670max al-padding-v12">
+            With information on 52 candidates across multiple regions in
+            the country, find a representative that aligns with your
+            advocacy* as we work towards a better future.
+        </h3>
+        <sub class="al-medium al-italic al-container-h670max al-padding-v12">
+            *The data that the team has collated is the main basis for 
+            the representatives’ respective platforms, primarily basing 
+            from the laws they have enacted.
+        </sub>
+        <div class="al-space-v40"></div>
+        <SearchBar/>
+        <FilterButton/>
+        <div class="al-space-h32"></div>
+        <FilterButton/>
+      </section>
+
+      <section class="al-representatives-bottom">
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+          <RepresentativeCard/>
+      </section>
+      
       
       <!-- <br><br><br>
       <h1>ALS PLAYGROUND BELOW</h1> -->

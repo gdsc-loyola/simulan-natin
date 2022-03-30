@@ -146,6 +146,29 @@ sub {
   min-height: 96px !important;
 }
 
+.al-representatives-top{
+  background-image: url('assets/RepresentativesProfilesBG.png');
+  background-repeat: no-repeat;
+  max-width: 100%;
+  /* background-attachment: fixed;
+  background-position-y: 90px; */
+  background-position-y: -9px;
+  background-size: 100%;
+  
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+  padding-top: 96px !important;
+  padding-bottom: 32px !important;
+  margin: 0 !important;
+}
+
+.al-representatives-bottom{
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
 .al-searchbar {
   font-size: 24px !important;
   line-height: 32px !important;
@@ -169,25 +192,61 @@ sub {
 }
 
 .al-representative-card {
+  display: inline-block;
   border: 2px solid #293C92 !important;
   box-sizing: border-box !important;
   border-radius: 8px !important;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   width: 588px;
   height: 144px;
+  margin: 12px;
+  text-align: left;
 }
 
+  .al-representative-card-content {
+    min-width: 516px;
+    min-height: 77px;
+    padding-left: 35.84px;
+    padding-right: 35.84px;
+    padding-top: 33.29px;
+    padding-bottom: 33.29px;
+  }
+
+    .al-representative-card-content-photo {
+      float: left;
+      margin-right: 16px;
+    }
+    
+    .al-representative-card-content-name {
+      display: inline-block;
+      font-family: "AvenirNext-Bold";
+      min-width: 321px;
+      min-height: 36px;
+      padding-right: 16px;
+    }
+
+    .al-representative-card-content-location {
+      display: inline-block;
+      font-family: "AvenirNext";
+      font-weight: 700;
+      width: 85px;
+      height: 36px;
+    }
+
+.al-advocacy-badge {
+  min-height: 29px;
+  font-family: "AvenirNext-Bold";
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 6.3px;
+  padding-bottom: 6.3px;
+  padding-left: 11.7px;
+  padding-right: 11.7px;
+  margin-right: 8px;
+}
+
+/* custom styles */
 .al-inline-block {
   display: inline-block !important;
-}
-
-.al-padding-h120 {
-  padding-left: 120px !important;
-  padding-right: 120px !important;
-  margin: 0 !important;
 }
 
 .al-padding-h80 {
@@ -199,12 +258,6 @@ sub {
 .al-padding-h20 {
   padding-left: 20px !important;
   padding-right: 20px !important;
-  margin: 0 !important;
-}
-
-.al-padding-v96 {
-  padding-top: 96px !important;
-  padding-bottom: 96px !important;
   margin: 0 !important;
 }
 
@@ -241,14 +294,9 @@ sub {
   padding-right: 16px !important;
 }
 
-/* own custom styles */
-.al-representatives-bg {
-  background-image: url('assets/RepresentativesProfilesBG.png');
-  background-repeat: no-repeat;
-  max-width: 100%;
-  /* background-attachment: fixed;
-  background-position-y: 90px; */
-  background-position-y: -9px;
-  background-size: 100%;
+.al-space-h16 {
+  display: inline !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 }
 </style>
