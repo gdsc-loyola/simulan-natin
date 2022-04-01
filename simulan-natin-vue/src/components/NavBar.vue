@@ -1,7 +1,7 @@
 <template>
 <nav class="al-navbar navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid al-padding-h80">
-    <a class="navbar-brand" @click="goToHome()">
+    <a class="navbar-brand" @click="goToHome()" style="cursor: pointer;">
       <img src="../assets/SimulanNatin2022HorizontalLogosBlue.png" alt="SimulanNatin2022BLLogo" width="193" height="43">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

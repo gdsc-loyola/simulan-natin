@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "representatives",
+  "info": {
+    "singularName": "representative",
+    "pluralName": "representatives",
+    "displayName": "Representative",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "age": {
+      "type": "integer"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "educational_background": {
+      "type": "text"
+    },
+    "political_party": {
+      "type": "string"
+    },
+    "committee_members": {
+      "type": "text"
+    },
+    "province": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::province.province",
+      "inversedBy": "representatives"
+    },
+    "district": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::district.district",
+      "inversedBy": "representatives"
+    },
+    "bills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bill.bill",
+      "mappedBy": "representative"
+    }
+  }
+}

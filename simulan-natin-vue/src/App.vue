@@ -219,8 +219,8 @@ sub {
     .al-representative-card-content-name {
       display: inline-block;
       font-family: "AvenirNext-Bold";
-      min-width: 321px;
-      min-height: 36px;
+      width: 321px;
+      height: 36px;
       padding-right: 16px;
     }
 
@@ -232,7 +232,7 @@ sub {
       height: 36px;
     }
 
-.al-advocacy-badge {
+.al-pill-badge {
   min-height: 29px;
   font-family: "AvenirNext-Bold";
   font-size: 12px;
@@ -242,6 +242,7 @@ sub {
   padding-left: 11.7px;
   padding-right: 11.7px;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 /* custom styles */
@@ -258,6 +259,13 @@ sub {
 .al-padding-h20 {
   padding-left: 20px !important;
   padding-right: 20px !important;
+  margin: 0 !important;
+}
+
+.al-padding-h16 {
+  display: inline;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
   margin: 0 !important;
 }
 
@@ -286,17 +294,5 @@ sub {
 .al-space-v40 {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-}
-
-.al-space-h32 {
-  display: inline !important;
-  padding-left: 16px !important;
-  padding-right: 16px !important;
-}
-
-.al-space-h16 {
-  display: inline !important;
-  padding-left: 8px !important;
-  padding-right: 8px !important;
 }
 </style>

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advocacies",
+  "info": {
+    "singularName": "advocacy",
+    "pluralName": "advocacies",
+    "displayName": "Advocacy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "bills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bill.bill",
+      "mappedBy": "advocacy"
+    }
+  }
+}
