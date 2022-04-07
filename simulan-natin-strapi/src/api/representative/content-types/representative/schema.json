@@ -54,6 +54,9 @@
       "relation": "oneToMany",
       "target": "api::bill.bill",
       "mappedBy": "representative"
+    },
+    "name_short": {
+      "type": "string"
     }
   }
 }

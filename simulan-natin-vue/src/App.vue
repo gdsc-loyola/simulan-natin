@@ -95,6 +95,11 @@ sub {
   line-height: 22px;
 }
 
+.al-caption {
+    font-size: 14px;
+    line-height: 16px;
+}
+
 .al-bold {
   font-family: "AvenirNext-Bold";
 }
@@ -109,6 +114,10 @@ sub {
 }
 
 /* colors */
+.al-font-primary-white {
+  color: #FAFAFA !important;
+}
+
 .al-font-primary-red {
   color: #FF0016 !important;
 }
@@ -147,7 +156,7 @@ sub {
 }
 
 .al-representatives-top{
-  background-image: url('assets/RepresentativesProfilesBG.png');
+  background-image: url('assets/RepresentativesBG.png');
   background-repeat: no-repeat;
   max-width: 100%;
   /* background-attachment: fixed;
@@ -200,6 +209,7 @@ sub {
   height: 144px;
   margin: 12px;
   text-align: left;
+  cursor: pointer;
 }
 
   .al-representative-card-content {
