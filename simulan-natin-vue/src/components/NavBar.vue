@@ -1,28 +1,22 @@
 <template>
-<nav class="al-navbar navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid al-padding-h80">
-    <a class="navbar-brand" @click="goToHome()" style="cursor: pointer;">
+<nav class="nav-bar-component navbar navbar-expand-lg navbar-light bg-light">
+  <div class="nav-bar-component-container-items container-fluid">
+    <a class="navbar-brand" @click="goToHome()">
       <img src="../assets/SimulanNatin2022HorizontalLogosBlue.png" alt="SimulanNatin2022BLLogo" width="193" height="43">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse al-bold" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item al-padding-h20 al-padding-v2">
-            <button type="button" @click="goToRepresentatives()" class="btn btn-light">
-                <a class="nav-link al-body al-font-primary-blue">Representatives</a>
-            </button>
+        <li class="nav-bar-component-item nav-item" @click="goToRepresentatives()">
+          <a class="nav-bar-component-item-color nav-link">Representatives</a>
         </li>
-        <li class="nav-item al-padding-h20 al-padding-v2">
-            <button type="button" @click="goToConventions()" class="btn btn-light">
-                <a class="nav-link al-body al-font-primary-blue">Conventions</a>
-            </button>
+        <li class="nav-bar-component-item nav-item" @click="goToConventions()">
+          <a class="nav-bar-component-item-color nav-link">Conventions</a>
         </li>
-        <li class="nav-item al-padding-h20 al-padding-v2">
-            <button type="button" @click="goToAbout()" class="btn btn-light">
-                <a class="nav-link al-body al-font-primary-blue">About</a>
-            </button>
+        <li class="nav-bar-component-item nav-item" @click="goToAbout()">
+          <a class="nav-bar-component-item-color nav-link">About</a>
         </li>
       </ul>
     </div>
@@ -49,3 +43,34 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* Relative 1440 */
+.navbar-brand {
+  cursor: pointer !important; /*add style to bs5 class*/
+}
+
+.nav-bar-component {
+  padding-top: 1.4931vw !important; /*21.5px*/
+  padding-bottom: 1.4931vw !important; /*21.5px*/
+  padding-left: 5.5556vw !important; /*80px*/
+  padding-right: 5.5556vw !important; /*80px*/
+}
+
+.nav-bar-component-container-items {
+  padding: 0 !important;
+}
+
+.nav-bar-component-item {
+  padding-left: 5.5556vw !important; /*80px*/
+  font-family: 'AvenirNext-Bold';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.nav-bar-component-item-color {
+  color: #293C92 !important;
+}
+</style>

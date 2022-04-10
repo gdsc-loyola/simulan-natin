@@ -1,117 +1,261 @@
 <template>
-    <div class="al-profiles">
-        <h2 class="al-bold al-profiles-header">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</h2>
-        <div class="al-profiles-representative-details">
-            <img src="../assets/logo.png" class="rounded-circle al-profiles-representative-details-photo" alt="..." width="240" height="240">
-            <div class="al-profiles-representative-details-name">
-                <h2 class="al-bold al-font-primary-blue">LAST NAME, FIRST NAME M.I.</h2>
-                <div class="al-medium">
-                    <body>
-                        Province, nth District <br>
-                        Political Party
-                    </body>
+    <div class="profiles-page">
+        <section class="profiles-page-container-info d-flex flex-column">
+            <div class="profiles-page-head">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</div>
+            <div class="d-flex align-items-center">
+                <div class="profile-page-image-border rounded-circle">
+                    <img src="../assets/logo.png" class="profile-page-image rounded-circle" alt="...">
                 </div>
-                <button type="button" class="al-profiles-representative-details-button btn btn-light al-font-primary-white al-bg-primary-blue al-medium al-caption">MORE INFORMATION</button>
+                <div class="d-flex flex-column profiles-page-container-details">
+                    <div class="profiles-page-name">LastName, FirstName M.I.</div>
+                    <div class="profiles-page-location-party">Province, Nth District</div>
+                    <div class="profiles-page-location-party">PoliticalParty</div>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="profiles-page-more-information btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        MORE INFORMATION
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="al-profiles-representative-platforms">
-            <sub>The following are this representative’s top platforms:</sub><br>
-            <sub class="al-caption al-italic">*based on laws enacted</sub><br>
-            <span class="badge rounded-pill al-bg-primary-blue al-platforms-pill-badge al-bold">PLATFORM (#)</span>
-            <span class="badge rounded-pill al-bg-primary-blue al-platforms-pill-badge al-bold">PLATFORM (#)</span>
-            <span class="badge rounded-pill al-bg-primary-blue al-platforms-pill-badge al-bold">PLATFORM (#)</span>
-        </div>
-
-        <div class="al-profiles-bills mx-auto">
-            <div class="row height d-flex justify-content-center align-items-center al-profiles-search">
-                <i class="fa fa-search"></i> 
-                <input type="text" class="form-control al-searchbar" placeholder="Search for a keyword...">
+            <div class="profiles-page-image-note">The following are this representative’s top platforms:</div>
+            <div class="profiles-page-image-note-small">*based on laws enacted</div>
+            <div>
+                <span class="profiles-page-advocacy-pill badge rounded-pill">ADVOCACY (N)</span>
+                <span class="profiles-page-advocacy-add badge rounded-pill">+</span>
             </div>
-
+            <div class="d-flex align-items-center">
+                <div class="profiles-page-search">
+                    <SearchBar/>
+                </div>
+                <div class="profiles-page-law-count badge rounded-pill">N laws</div>
+            </div>
+        </section>
+        <section class="profiles-page-container-bills">
             <BillCard/>
+            <BillCard/>
+            <BillCard/>
+            <BillCard/>
+            <BillCard/>
+            <BillCard/>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                     <div class="profiles-page-modal-head">EDUCATION</div>
+                     <div class="profiles-page-modal-body-education">Lorem ipsum dolor sit amet</div>
+                     <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
+                     <ul class="profiles-page-modal-body-membership">
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Lorem ipsum dolor sit amet</li>
+                     </ul>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import BillCard from '../components/BillCard.vue'
+import SearchBar from '../components/SearchBar.vue'
 
 export default {
   name: 'App',
   components: {
     BillCard,
-  },
+    SearchBar
+  }
 }
 </script>
 
-
 <style scoped>
-.al-profiles {
+/* Relative 1440 */
+.profiles-page {
     background-image: url('../assets/ProfilesBG.png');
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
+    background-position-y: -6.6667vw; /*-96px*/
     background-repeat: no-repeat;
     max-width: 100%;
     background-size: 100%;
+}
+
+.profiles-page-container-info {
+    padding-top: 2.7778vw !important; /*40px*/
+    padding-bottom: 2.2222vw !important; /*32px*/
+    margin-left: 8.3333vw !important; /*120px*/
+    margin-right: 8.3333vw !important; /*120px*/
+    width: 83.3333vw !important; /*1200px*/
+}
+
+.profiles-page-head {
+    margin-left: 3.8889vw !important; /*56px*/
+    margin-right: 3.8889vw !important; /*56px*/
+    margin-bottom: 3.4028vw !important; /*49px*/
+    width: 75.4861vw !important; /*1087px*/
+    height: 5.5556vw !important; /*80px*/
+    color: #333333;
+    font-family: 'AvenirNext-Bold';
+    font-weight: 700;
+    font-size: 2.2222vw; /*32px*/
+    line-height: 2.7778vw; /*40px*/
+
+    text-align: center !important;
+}
+
+.profile-page-image-border {
+    width: 17.2222vw !important; /*248px*/
+    height: 17.2222vw !important; /*248px*/
+    border: 3px solid #293C92;
     text-align: center;
 }
 
-.al-profiles-header {
-  height: 80px;
-  width: 1087px;
-  padding: 40px;
-  text-align: center;
-  display: inline-block;
+.profile-page-image {
+    width: 16.6667vw !important; /*240px*/
+    height: 16.6667vw !important; /*240px*/
+    border: 2px solid #293C92;
+    border-radius: 8.3333vw; /*120px*/
 }
 
-.al-profiles-representative-details {
-  height: 240px;
-  width: 1200px;
-  text-align: left;
-  display: inline-block;
-  position: relative;
-  margin-top: 48px;
-  margin-bottom: 48px;
+.profiles-page-container-details {
+    margin-left: 5vw !important; /*72px*/
 }
 
-.al-profiles-representative-details-photo {
-    float: left;
+.profiles-page-name {
+    margin-bottom: 0.5556vw !important; /*8px*/
+    color: #293C92;
+    font-family: 'AvenirNext-Bold';
+    font-weight: 700;
+    font-size: 2.2222vw; /*32px*/
+    line-height: 2.7778vw; /*40px*/
 }
 
-.al-profiles-representative-details-name {
-    padding-left: 76px;
-    display: inline-block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+.profiles-page-location-party {
+    margin-bottom: 0.5556vw !important; /*8px*/
+    color: #333333;
+    font-family: 'AvenirNext';
+    font-weight: 700;
+    font-size: 1.25vw !important; /*18px*/
+    line-height: 1.5278vw !important; /*22px*/
 }
 
-.al-profiles-representative-details-button {
-    width: 171px;
-    height: 30px;
-    margin-top: 26px;
+.profiles-page-more-information {
+    padding: 0.4861vw 0.9028vw !important; /*7px 13px*/
+    margin-top: 1.25vw !important; /*18px*/
+    width: 12.4vw !important; /*171px*/
+    height: 2.1vw !important; /*30px*/
+    background: #293C92;
+    color: #FAFAFA;
+    font-family: 'AvenirNext';
+    font-weight: 700;
+    font-size: 0.9722vw; /*14px*/
+    line-height: 1.1111vw; /*16px*/
+
+    border: 1px solid #293C92;
+    box-sizing: border-box;
+    border-radius: 0.2778vw; /*4px*/
 }
 
-.al-profiles-representative-platforms {
-  width: 1200px;
-  text-align: left;
-  display: inline-block;
+.profiles-page-image-note {
+    margin-top: 3.3333vw !important; /*48px*/
+    color: #000000;
+    font-family: 'AvenirNext';
+    font-weight: 400;
+    font-size: 1.1111vw; /*16px*/
+    line-height: 1.25vw; /*18px*/
 }
 
-.al-platforms-pill-badge {
-    font-size: 24px;
-    line-height: 32px;
-    margin-top: 16px;
-    margin-right: 16px;
+.profiles-page-image-note-small {
+    margin-bottom: 0.8333vw !important; /*12px*/
+    color: #000000;
+    font-family: 'AvenirNext-Italic';
+    font-weight: 400;
+    font-size: 0.9722vw; /*14px*/
+    line-height: 1.1111vw; /*16px*/
 }
 
-.al-profiles-search {
-    width: 768px;
-    height: 64px;
+.profiles-page-advocacy-pill {
+    padding: 0.7292vw 1.3542vw !important; /*10.5px 19.5px*/
+    margin-right: 1.1111vw; /*16px*/
+    margin-bottom: 1.1111vw; /*16px*/
+    background: #F4F1E5;
+    color: #B57E33;
+    font-family: 'AvenirNext-Bold';
+    font-weight: 700;
+    font-size: 1.6667vw; /*24px*/
+    line-height: 2.2222vw; /*32px*/
+
+    border-radius: 6.875vw; /*99px*/
+    cursor: pointer !important;
 }
 
-.al-profiles-bills {
-    width: 1200px;
-    margin-top: 54px;
+.profiles-page-advocacy-add {
+    padding: 0.6479vw !important; /*9.33px*/
+    background: #342A92;
+    color: #FAFAFA;
+    font-family: 'AvenirNext';
+    font-weight: 700;
+    font-size: 1.6667vw; /*24px*/
+    line-height: 1vw; /*14.4px*/
+
+    cursor: pointer !important;
+}
+
+.profiles-page-search {
+    margin-top: 2.2222vw !important; /*32px*/
+    width: 53.3333vw !important; /*768px*/
+}
+
+.profiles-page-law-count {
+    padding: 0.3646vw 0.6771vw !important; /*5.25px 9.75px*/
+    margin-left: 2.7778vw !important; /*40px*/
+    margin-top: 2.2222vw !important; /*32px*/
+    background: #293C92;
+    color: #E0E0E0;
+    font-family: 'AvenirNext-Bold';
+    font-weight: 700;
+    font-size: 1.25vw; /*18px*/
+    line-height: 1.5278vw; /*22px*/
+
+    border-radius: 6.875vw; /*99px*/
+}
+
+.profiles-page-container-bills {
+   text-align: center !important; 
+}
+
+/*modal is not relative to 1440*/
+.profiles-page-modal-head {
+    margin-bottom: 16px;
+    color: #000000;
+    font-family: 'AvenirNext-Bold';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.profiles-page-modal-body-education {
+    margin-bottom: 24px;
+    color: #000000;
+    font-family: 'AvenirNext';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.profiles-page-modal-body-membership {
+    margin-bottom: 24px;
+    color: #000000;
+    font-family: 'AvenirNext';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
 }
 </style>

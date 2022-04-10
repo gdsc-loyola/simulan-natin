@@ -1,12 +1,24 @@
 <template>
-    <div class="representatives-page">
-      <section>
-        <div class="representatives-page-head">Representative Database</div>
-        <div class="representatives-page-body">With information on 52 candidates across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
-        <div class="representatives-page-note">*The data that the team has collated is the main basis for the representatives’ respective platforms, primarily basing from the laws they have enacted.</div>
-      </section>
-      <section></section>
-    </div>
+  <div>
+    <section class="representatives-page">
+      <div class="representatives-page-head">Representative Database</div>
+      <div class="representatives-page-body">With information on 52 candidates across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
+      <div class="representatives-page-note">*The data that the team has collated is the main basis for the representatives’ respective platforms, primarily basing from the laws they have enacted.</div>
+      <SearchBar/>
+      <div class="representatives-page-container-filter">
+        <FilterButton/>
+        <FilterButton/>
+      </div>
+    </section>
+    <section class="representatives-page-cards">
+      <RepresentativeCard/>
+      <RepresentativeCard/>
+      <RepresentativeCard/>
+      <RepresentativeCard/>
+      <RepresentativeCard/>
+      <RepresentativeCard/>
+    </section>
+  </div>
     
     <!-- <div>
       <section class="al-representatives-top">
@@ -22,7 +34,6 @@
             from the laws they have enacted.
         </sub>
         <div class="al-space-v40"></div>
-        <SearchBar/>
         <div class="dropdown al-inline-block al-padding-v12">
           <button type="button" class="btn al-filter-button dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Location Filter
@@ -36,7 +47,6 @@
         <div class="al-padding-h16">
           <span class="badge rounded-pill al-bg-primary-blue al-pill-badge" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
         </div>
-        <FilterButton/>
       </section>
 
       <section class="al-representatives-bottom">
@@ -51,25 +61,23 @@
             <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy3</span>
           </div>
         </div>
-
-        <RepresentativeCard/>
       </section>
     </div> -->
 </template>
 
 <script>
-// import SearchBar from '../components/SearchBar.vue'
-// import FilterButton from '../components/FilterButton.vue'
-// import RepresentativeCard from '../components/RepresentativeCard.vue'
+import SearchBar from '../components/SearchBar.vue'
+import FilterButton from '../components/FilterButton.vue'
+import RepresentativeCard from '../components/RepresentativeCard.vue'
 
 import axios from "axios";
 
 export default {
   name: 'App',
   components: {
-    // SearchBar,
-    // FilterButton,
-    // RepresentativeCard
+    SearchBar,
+    FilterButton,
+    RepresentativeCard
   },
   data() {
     return {
@@ -110,7 +118,7 @@ export default {
 /* Relative 1440 */
 .representatives-page {
   padding-top: 7.5vw !important; /*108px*/
-  padding-bottom: 4.4444vw !important; /*64px*/
+  padding-bottom: 3.6111vw !important; /*52px*/
   padding-left: 8.3333vw !important; /*120px*/
   padding-right: 8.3333vw !important; /*120px*/
 
@@ -143,11 +151,21 @@ export default {
 }
 
 .representatives-page-note {
+  padding-bottom: 4.4444vw !important; /*64px*/
   width: 47.9167vw !important; /*690px*/
   color: #000000; 
   font-family: 'AvenirNext-Italic';
   font-weight: 700; 
   font-size: 1.1111vw; /*16px*/
   line-height: 1.25vw; /*18px*/
+}
+
+.representatives-page-container-filter {
+  padding-top: 1.6667vw !important; /*24px*/
+}
+
+.representatives-page-cards {
+  padding-bottom: 3.6111vw !important; /*52px*/
+  text-align: center !important;
 }
 </style>
