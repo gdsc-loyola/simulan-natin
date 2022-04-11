@@ -11,29 +11,12 @@
       </div>
     </section>
     <section class="representatives-page-cards">
-      <RepresentativeCard/>
-      <RepresentativeCard/>
-      <RepresentativeCard/>
-      <RepresentativeCard/>
-      <RepresentativeCard/>
-      <RepresentativeCard/>
+      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative"/>
     </section>
   </div>
     
     <!-- <div>
       <section class="al-representatives-top">
-        <h1 class="al-bold al-padding-v12">Representative Database</h1>
-        <h3 class="al-medium al-container-h670max al-padding-v12">
-            With information on 52 candidates across multiple regions in
-            the country, find a representative that aligns with your
-            advocacy* as we work towards a better future.
-        </h3>
-        <sub class="al-medium al-italic al-container-h670max al-padding-v12">
-            *The data that the team has collated is the main basis for 
-            the representatives’ respective platforms, primarily basing 
-            from the laws they have enacted.
-        </sub>
-        <div class="al-space-v40"></div>
         <div class="dropdown al-inline-block al-padding-v12">
           <button type="button" class="btn al-filter-button dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Location Filter
@@ -82,34 +65,34 @@ export default {
   data() {
     return {
       representatives: [],
-      provinces: [],
+      // provinces: [],
 
-      locFilter: [],
+      // locFilter: [],
     };
   },
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
-    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
+    // const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
 
     this.representatives = rep.data.data;
-    this.provinces = pro.data.data;
+    // this.provinces = pro.data.data;
   },
   methods: {
     goToProfiles() {
       this.$router.push('/profiles');
     },
-    addLocFilter(toAdd) {
-      if (!this.locFilter.includes(toAdd)) {
-        this.locFilter.push(toAdd)
-      }
-      this.provinces = this.provinces.filter((province) => province !== toAdd)
-    },
-    removeLocFilter(toRemove){
-      if (!this.provinces.includes(toRemove)) {
-        this.provinces.push(toRemove)
-      }
-      this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
-    },
+    // addLocFilter(toAdd) {
+    //   if (!this.locFilter.includes(toAdd)) {
+    //     this.locFilter.push(toAdd)
+    //   }
+    //   this.provinces = this.provinces.filter((province) => province !== toAdd)
+    // },
+    // removeLocFilter(toRemove){
+    //   if (!this.provinces.includes(toRemove)) {
+    //     this.provinces.push(toRemove)
+    //   }
+    //   this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
+    // },
   }
 }
 </script>
