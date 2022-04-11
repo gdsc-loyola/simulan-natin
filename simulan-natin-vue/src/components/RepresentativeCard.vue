@@ -6,8 +6,8 @@
       <div class="representative-card-component-container-details d-flex flex-column">
         <div class="d-flex align-items-center">
           <div class="representative-card-component-head">{{ repData.attributes.name }}</div>
-          <div class="representative-card-component-location">{{ repData.attributes.province.data.attributes.name }}, District {{ repData.attributes.district.data.attributes.number }}</div>
-          <!-- <div class="representative-card-component-location">ProvinceName, District N</div> -->
+          <!-- <div class="representative-card-component-location">{{ repData.attributes.province.data.attributes.name }}, District {{ repData.attributes.district.data.attributes.number }}</div> -->
+          <div class="representative-card-component-location">ProvinceName, District N</div>
         </div>
         <div>
           <span class="badge rounded-pill representative-card-component-pill">Advocacy1</span>
