@@ -18,18 +18,18 @@
                     </div>
                 </div>
             </div>
-            <div class="profiles-page-image-note">The following are this representative’s top platforms:</div>
+            <!-- <div class="profiles-page-image-note">The following are this representative’s top platforms:</div>
             <div class="profiles-page-image-note-small">*based on laws enacted</div>
             <div>
                 <span class="profiles-page-advocacy-pill badge rounded-pill">ADVOCACY (N)</span>
                 <span class="profiles-page-advocacy-add badge rounded-pill">+</span>
-            </div>
-            <div class="d-flex align-items-center">
+            </div> -->
+            <!-- <div class="d-flex align-items-center">
                 <div class="profiles-page-search">
                     <SearchBar/>
                 </div>
                 <div class="profiles-page-law-count badge rounded-pill">N laws</div>
-            </div>
+            </div> -->
         </section>
         <section class="profiles-page-container-bills">
             <BillCard/>
@@ -65,13 +65,13 @@
 
 <script>
 import BillCard from '../components/BillCard.vue'
-import SearchBar from '../components/SearchBar.vue'
+// import SearchBar from '../components/SearchBar.vue'
 
 export default {
   name: 'App',
   components: {
     BillCard,
-    SearchBar
+    // SearchBar
   }
 }
 </script>
@@ -120,8 +120,11 @@ export default {
 .profile-page-image {
     width: 16.6667vw !important; /*240px*/
     height: 16.6667vw !important; /*240px*/
+
     border: 2px solid #293C92;
     border-radius: 8.3333vw; /*120px*/
+    object-fit: cover;
+    object-position: 0 0;
 }
 
 .profiles-page-container-details {
@@ -228,7 +231,8 @@ export default {
 }
 
 .profiles-page-container-bills {
-   text-align: center !important; 
+    padding-bottom: 1.6667vw !important; /*24px*/
+    text-align: center !important; 
 }
 
 /*modal is not relative to 1440*/

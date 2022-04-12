@@ -4,53 +4,30 @@
       <div class="representatives-page-head">Representative Database</div>
       <div class="representatives-page-body">With information on 52 candidates across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
       <div class="representatives-page-note">*The data that the team has collated is the main basis for the representatives’ respective platforms, primarily basing from the laws they have enacted.</div>
-      <SearchBar/>
+      <!-- <SearchBar/> -->
       <div class="representatives-page-container-filter">
-        <FilterButton/>
-        <FilterButton/>
+        <!-- <FilterButton/> -->
+        <!-- <FilterButton/> -->
+        <div class="filter-button-component-main dropdown">
+          <button type="button" class="btn dropdown-toggle filter-button-component" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Location Filter
+          </button>
+          <ul class="dropdown-menu filter-button-component-dropdown" aria-labelledby="dropdownMenuButton1">
+              <li v-for="province in provinces" :key="province.id" @click="addLocFilter(province)"><a class="dropdown-item filter-button-component-dropdown-item" href="#">{{ province.attributes.name }}</a></li>
+          </ul>
+          <span class="badge rounded-pill filter-button-component-location-filter" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
+        </div>
       </div>
     </section>
     <section class="representatives-page-cards">
-      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative"/>
+      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative" @click="goToProfiles()"/>
     </section>
   </div>
-    
-    <!-- <div>
-      <section class="al-representatives-top">
-        <div class="dropdown al-inline-block al-padding-v12">
-          <button type="button" class="btn al-filter-button dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Location Filter
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li class="dropdown-item" v-for="province in provinces" :key="province.id" @click="addLocFilter(province)">
-              {{ province.attributes.name }}
-            </li>
-          </ul>
-        </div>
-        <div class="al-padding-h16">
-          <span class="badge rounded-pill al-bg-primary-blue al-pill-badge" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
-        </div>
-      </section>
-
-      <section class="al-representatives-bottom">
-
-        <div class="al-representative-card" v-for="representative in representatives" :key="representative.id" @click="goToProfiles()">
-          <div class="al-representative-card-content">
-            <img :src="`https://simulan-natin-cms.herokuapp.com${representative.attributes.photo.data.attributes.url}`" class="rounded-circle al-representative-card-content-photo" alt="..." width="77" height="77">
-            <h3 class="al-representative-card-content-name"> {{ representative.attributes.name_short }} </h3>
-            <sub class="al-representative-card-content-location">{{ representative.attributes.province.data.attributes.name }}, District {{ representative.attributes.district.data.attributes.number }}</sub>
-            <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy1</span>
-            <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy2</span>
-            <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy3</span>
-          </div>
-        </div>
-      </section>
-    </div> -->
 </template>
 
 <script>
-import SearchBar from '../components/SearchBar.vue'
-import FilterButton from '../components/FilterButton.vue'
+// import SearchBar from '../components/SearchBar.vue'
+// import FilterButton from '../components/FilterButton.vue'
 import RepresentativeCard from '../components/RepresentativeCard.vue'
 
 import axios from "axios";
@@ -58,41 +35,39 @@ import axios from "axios";
 export default {
   name: 'App',
   components: {
-    SearchBar,
-    FilterButton,
+    // SearchBar,
+    // FilterButton,
     RepresentativeCard
   },
   data() {
     return {
       representatives: [],
-      // provinces: [],
-
-      // locFilter: [],
+      provinces: [],
+      locFilter: [],
     };
   },
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
-    // const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
-
+    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
     this.representatives = rep.data.data;
-    // this.provinces = pro.data.data;
+    this.provinces = pro.data.data;
   },
   methods: {
     goToProfiles() {
       this.$router.push('/profiles');
     },
-    // addLocFilter(toAdd) {
-    //   if (!this.locFilter.includes(toAdd)) {
-    //     this.locFilter.push(toAdd)
-    //   }
-    //   this.provinces = this.provinces.filter((province) => province !== toAdd)
-    // },
-    // removeLocFilter(toRemove){
-    //   if (!this.provinces.includes(toRemove)) {
-    //     this.provinces.push(toRemove)
-    //   }
-    //   this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
-    // },
+    addLocFilter(toAdd) {
+      if (!this.locFilter.includes(toAdd)) {
+        this.locFilter.push(toAdd)
+      }
+      this.provinces = this.provinces.filter((province) => province !== toAdd)
+    },
+    removeLocFilter(toRemove){
+      if (!this.provinces.includes(toRemove)) {
+        this.provinces.push(toRemove)
+      }
+      this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
+    },
   }
 }
 </script>
@@ -150,5 +125,56 @@ export default {
 .representatives-page-cards {
   padding-bottom: 3.6111vw !important; /*52px*/
   text-align: center !important;
+}
+
+/*Filter Button Component*/
+.filter-button-component {
+  padding-top: 0.4861vw !important; /*7px*/
+  padding-bottom: 0.4861vw !important; /*7px*/
+  padding-left: 0.9027vw !important; /*13px*/
+  padding-right: 0.9027vw !important; /*13px*/
+  margin-right: 1.9444vw !important; /*28px*/
+  width: 11.3611vw !important; /*163.6px*/
+  height: 2.5vw !important; /*36px*/
+  background-color: #293C92 !important;
+  color: #FFFFFF !important;
+  font-family: "AvenirNext-Bold";
+  font-size: 1.25vw !important;  /*18px*/
+  line-height: 1.5278vw !important; /*22px*/
+}
+
+.filter-button-component-main {
+  display: inline-block !important;
+  margin-right: 2.2222vw !important; /*32px*/ 
+}
+
+.filter-button-component-dropdown-item {
+  padding-top: 0.2778vw !important; /*4px*/
+  padding-bottom: 0.2778vw !important; /*4px*/
+  padding-left: 1.1111vw !important; /*16px*/
+  padding-right: 1.1111vw !important; /*16px*/
+  font-family: "AvenirNext";
+  font-size: 1.25vw !important;  /*18px*/
+  line-height: 1.5278vw !important; /*22px*/
+}
+
+.filter-button-component-dropdown {
+  padding-top: 0.5556vw !important; /*8px*/
+  padding-bottom: 0.5556vw !important; /*8px*/
+}
+
+.filter-button-component-location-filter {
+  padding: 0.4375vw 0.8125vw !important; /*6.3px 11.7px*/
+  margin: 0 0.2778vw !important; /*0 4px*/
+  background: #F1F1EF;
+  color: #787774;
+  font-family: 'AvenirNext-Bold';
+  font-weight: 700;
+  font-size: 0.8333vw; /*12px*/
+  line-height: 1.1111vw; /*16px*/
+
+  border-radius: 6.875vw; /*99px*/
+  text-transform: uppercase;
+  cursor: pointer;
 }
 </style>

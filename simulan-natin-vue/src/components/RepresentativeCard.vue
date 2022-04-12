@@ -1,18 +1,14 @@
 <template>
   <div class="representative-card-component">
-    <div class="representative-card-component-card d-flex justify-content-center align-items-center" @click="goToProfiles()">
-      <img :src="repData.attributes.photo.data.attributes.url" class="representative-card-component-image rounded-circle" alt="...">
-      <!-- <img src="../assets/logo.png" class="representative-card-component-image rounded-circle" alt="..."> -->
+    <div class="representative-card-component-card d-flex justify-content-center align-items-center">
+      <img :src="repData.attributes.photo.data?.attributes.url" class="representative-card-component-image rounded-circle" alt="...">
       <div class="representative-card-component-container-details d-flex flex-column">
         <div class="d-flex align-items-center">
-          <div class="representative-card-component-head">{{ repData.attributes.name }}</div>
-          <!-- <div class="representative-card-component-location">{{ repData.attributes.province.data.attributes.name }}, District {{ repData.attributes.district.data.attributes.number }}</div> -->
-          <div class="representative-card-component-location">ProvinceName, District N</div>
+          <div class="representative-card-component-head">{{ repData.attributes.name.split(" ")[0] }} {{ repData.attributes.name.split(" ")[1]}}</div>
+          <div class="representative-card-component-location">{{ repData.attributes.province.data?.attributes.name }}, District {{ repData.attributes.district.data?.attributes.number }}</div>
         </div>
         <div>
-          <span class="badge rounded-pill representative-card-component-pill">Advocacy1</span>
-          <span class="badge rounded-pill representative-card-component-pill">Advocacy2</span>
-          <span class="badge rounded-pill representative-card-component-pill">Advocacy3</span>
+          <span class="badge rounded-pill representative-card-component-pill" :style="`background: ${repData.attributes.advocacies.data[0]?.attributes.bg_color}; color: ${repData.attributes.advocacies.data[0]?.attributes.text_color};`">{{ repData.attributes.advocacies.data[0]?.attributes.name }}</span>
         </div>
       </div>
     </div>
@@ -22,11 +18,6 @@
 <script>
 export default {
   name: 'RepresentativeCard',
-  methods: {
-    goToProfiles() {
-      this.$router.push('/profiles');
-    },
-  },
   props: ['repData']
 }
 </script>
@@ -50,7 +41,11 @@ export default {
 
 .representative-card-component-image {
   width: 5.3764vw !important; /*77.42px*/
+  height: 5.3764vw !important; /*77.42px*/
+
   border: 2px solid #293C92;
+  object-fit: cover;
+  object-position: 0 0;
 }
 
 .representative-card-component-container-details {
@@ -85,10 +80,11 @@ export default {
   padding-right: 0.8125vw !important; /*11.7px*/
   margin-right: 0.5556vw !important; /*8px*/
   height: 2.0139vw !important; /*29px*/
-  background-color: #293C92 !important;
   font-family: "AvenirNext-Bold";
   font-size: 0.8333vw; /*12px*/
   line-height: 1.1111vw; /*16px*/
+
+  text-transform: uppercase;
   cursor: pointer;
 }
 </style>
