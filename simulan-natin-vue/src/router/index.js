@@ -17,7 +17,7 @@ const routes = [
         component: Representatives
     },
     {
-        path: '/profiles',
+        path: '/profiles/:id',
         name: 'Profiles',
         component: Profiles
     },

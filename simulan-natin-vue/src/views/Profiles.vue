@@ -1,5 +1,6 @@
 <template>
     <div class="profiles-page">
+        <div>{{repData}}</div>
         <section class="profiles-page-container-info d-flex flex-column">
             <div class="profiles-page-head">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</div>
             <div class="d-flex align-items-center">
@@ -7,9 +8,9 @@
                     <img src="../assets/logo.png" class="profile-page-image rounded-circle" alt="...">
                 </div>
                 <div class="d-flex flex-column profiles-page-container-details">
-                    <div class="profiles-page-name">LastName, FirstName M.I.</div>
-                    <div class="profiles-page-location-party">Province, Nth District</div>
-                    <div class="profiles-page-location-party">PoliticalParty</div>
+                    <div class="profiles-page-name">{{ repData?.name }}</div>
+                    <div class="profiles-page-location-party">{{ repData?.province?.data?.attributes.name }}, {{repData?.district?.data?.attributes.number}}th District</div>
+                    <div class="profiles-page-location-party">{{ repData?.political_party }}</div>
                     <div>
                         <!-- Button trigger modal -->
                         <button type="button" class="profiles-page-more-information btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -18,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="profiles-page-image-note">The following are this representative’s top platforms:</div>
+            <div class="profiles-page-image-note">The following are this representative's top platforms:</div>
             <div class="profiles-page-image-note-small">*based on laws enacted</div>
             <div>
                 <span class="profiles-page-advocacy-pill badge rounded-pill">ADVOCACY (N)</span>
@@ -64,6 +65,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import BillCard from '../components/BillCard.vue'
 import SearchBar from '../components/SearchBar.vue'
 
@@ -72,6 +74,15 @@ export default {
   components: {
     BillCard,
     SearchBar
+  },
+  data() {
+    return {
+        repId: this.$route.params.id,
+        repData: {}
+    }
+  },
+  async mounted() {
+    this.repData = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)?.data?.data?.attributes
   }
 }
 </script>
