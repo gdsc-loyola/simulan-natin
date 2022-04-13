@@ -4,7 +4,6 @@
       <div class="representatives-page-head">Representative Database</div>
       <div class="representatives-page-body">With information on 52 candidates across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
       <div class="representatives-page-note">*The data that the team has collated is the main basis for the representatives’ respective platforms, primarily basing from the laws they have enacted.</div>
-      <!-- <SearchBar/> -->
       <div class="representatives-page-container-filter">
         <!-- <FilterButton/> -->
         <!-- <FilterButton/> -->
@@ -26,7 +25,6 @@
 </template>
 
 <script>
-// import SearchBar from '../components/SearchBar.vue'
 // import FilterButton from '../components/FilterButton.vue'
 import RepresentativeCard from '../components/RepresentativeCard.vue'
 
@@ -35,7 +33,6 @@ import axios from "axios";
 export default {
   name: 'App',
   components: {
-    // SearchBar,
     // FilterButton,
     RepresentativeCard
   },

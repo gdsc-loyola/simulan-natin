@@ -2,7 +2,7 @@
     <div>
         <section class="conventions-page-top">
             <div class="conventions-page-top-head">Conventions</div>
-            <div class="conventions-page-top-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare sagittis amet, sed sed pellentesque a ante.</div>
+            <div class="conventions-page-top-body">Explore our knowledge sharing sessions on election-related issues and concerns that engage with various sectors and partners.</div>
         </section>
         <section class="conventions-page-container-cons">
             <ConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id)"/>
@@ -68,7 +68,7 @@ export default {
 }
 
 .conventions-page-top-body {
-    width: 48.6806vw !important; /*701px*/
+    width: 55vw !important; /*792px*/
     height: 4.4444vw !important; /*64px*/
     color: #FAFAFA;
     font-family: 'AvenirNext';
