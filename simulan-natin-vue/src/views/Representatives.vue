@@ -18,9 +18,22 @@
           <span class="badge rounded-pill filter-button-component-location-filter" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
         </div>
       </div>
+      <div class="representatives-page-container-filter">
+        <!-- <FilterButton/> -->
+        <!-- <FilterButton/> -->
+        <div class="filter-button-component-main dropdown">
+          <button type="button" class="btn dropdown-toggle filter-button-component" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Advocacy Filter
+          </button>
+          <ul class="dropdown-menu filter-button-component-dropdown" aria-labelledby="dropdownMenuButton1">
+              <li v-for="advocacy in advocacies" :key="advocacy.id" @click="addAdvFilter(advocacy)"><a class="dropdown-item filter-button-component-dropdown-item" href="#">{{ advocacy.attributes.name }}</a></li>
+          </ul>
+          <span class="badge rounded-pill filter-button-component-location-filter" v-for="adv in advFilter" :key="adv.id" @click="removeAdvFilter(adv)">{{ adv.attributes.name }}</span>
+        </div>
+      </div>
     </section>
     <section class="representatives-page-cards">
-      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative" @click="goToProfiles(representative.id)"/>
+      <RepresentativeCard v-for="representative in filtered_reps" :key="representative.id" :repData="representative" @click="goToProfiles(representative.id)"/>
     </section>
   </div>
 </template>
@@ -42,20 +55,29 @@ export default {
   data() {
     return {
       representatives: [],
+      filtered_reps: [],
+      combined_filters: [],
       provinces: [],
+      advocacies: [],
       locFilter: [],
+      advFilter: []
     };
+  },
+  watch: {
+    combined_filters: {
+      handler: 'filterReps',
+      deep: true
+    }
   },
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
     const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?name");
+    const adv = await axios.get("https://simulan-natin-cms.herokuapp.com/api/advocacies?name");
     
-    for (let i = 0; i < rep.data.data.length; i++) {
-      if (this.$options.filters.location(rep.data.data[i]) !== undefined) {
-        this.representatives.push(this.$options.filters.location(rep.data.data[i]))
-      }
-    }
+    this.representatives = rep.data.data;
     this.provinces = pro.data.data;
+    this.advocacies = adv.data.data;
+    this.filtered_reps = this.representatives;
   },
   methods: {
     goToProfiles(repId) {
@@ -64,20 +86,56 @@ export default {
     addLocFilter(toAdd) {
       if (!this.locFilter.includes(toAdd)) {
         this.locFilter.push(toAdd)
+        this.combined_filters.push(toAdd.attributes.name)
       }
       this.provinces = this.provinces.filter((province) => province !== toAdd)
     },
-    removeLocFilter(toRemove){
+    addAdvFilter(toAdd) {
+      if (!this.advFilter.includes(toAdd)) {
+        this.advFilter.push(toAdd)
+        this.combined_filters.push(toAdd.attributes.name)
+      }
+      this.advocacies = this.advocacies.filter((advocacy) => advocacy !== toAdd)
+    },
+    removeLocFilter(toRemove) {      
       if (!this.provinces.includes(toRemove)) {
         this.provinces.push(toRemove)
+        this.combined_filters = this.combined_filters.filter(i => i !== toRemove.attributes.name)
       }
       this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
-    }
-  },
-  filters: {
-    location: (val) => {
-      if (val.attributes.province.data.attributes.name == 'Cavite') {
-        return val
+    },
+    removeAdvFilter(toRemove) {      
+      if (!this.advocacies.includes(toRemove)) {
+        this.advocacies.push(toRemove)
+        this.combined_filters = this.combined_filters.filter(i => i !== toRemove.attributes.name)
+      }
+      this.advFilter = this.advFilter.filter((adv) => adv !== toRemove)
+    },
+    filterReps() {
+      this.filtered_reps = []
+
+      if (this.locFilter.length > 0 && this.advFilter.length > 0) {
+        this.representatives.forEach(i => {
+          if (this.combined_filters.includes(i.attributes.province?.data.attributes.name) && this.combined_filters.includes(i.attributes.advocacies?.data[0].attributes.name)) {
+            this.filtered_reps.push(i)
+          }
+        })
+      } else if (this.locFilter.length > 1 && this.advFilter.length > 1) {
+        this.representatives.forEach(i => {
+          if (this.combined_filters.includes(i.attributes.province?.data.attributes.name) || this.combined_filters.includes(i.attributes.advocacies?.data[0].attributes.name)) {
+            this.filtered_reps.push(i)
+          }
+        })
+      } else {
+        this.representatives.forEach(i => {
+          if (this.combined_filters.includes(i.attributes.province?.data.attributes.name) || this.combined_filters.includes(i.attributes.advocacies?.data[0].attributes.name)) {
+            this.filtered_reps.push(i)
+          }
+        })
+      }
+
+      if (this.combined_filters.length == 0) {
+        this.filtered_reps = this.representatives
       }
     }
   }
