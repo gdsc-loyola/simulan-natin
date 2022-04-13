@@ -49,7 +49,12 @@ export default {
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
     const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?name");
-    this.representatives = rep.data.data;
+    
+    for (let i = 0; i < rep.data.data.length; i++) {
+      if (this.$options.filters.location(rep.data.data[i]) !== undefined) {
+        this.representatives.push(this.$options.filters.location(rep.data.data[i]))
+      }
+    }
     this.provinces = pro.data.data;
   },
   methods: {
@@ -67,7 +72,14 @@ export default {
         this.provinces.push(toRemove)
       }
       this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
-    },
+    }
+  },
+  filters: {
+    location: (val) => {
+      if (val.attributes.province.data.attributes.name == 'Cavite') {
+        return val
+      }
+    }
   }
 }
 </script>

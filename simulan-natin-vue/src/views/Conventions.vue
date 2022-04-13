@@ -26,9 +26,9 @@ export default {
     };
   },
   async mounted() {
-    const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*")
+    const con = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*")
 
-    this.conventions = rep.data.data
+    this.conventions = con.data.data
   },
   methods: {
     goToConvention(conId) {

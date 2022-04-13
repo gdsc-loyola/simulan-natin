@@ -13,27 +13,55 @@
         </div>
         <img :src="conData.poster?.data.attributes.url" alt="" class="convention-page-poster">
         <div class="convention-page-head" :style="`color: ${conData.theme};`">More Conventions</div>
+        <div class="convention-page-container-cons">
+            <SmallConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id)"/>
+        </div>
     </div>
 </template>
 
 <script>
+import SmallConventionCard from '../components/SmallConventionCard.vue'
+
 import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-
+      SmallConventionCard,
   },
   data() {
     return {
         conId: this.$route.params.id,
-        conData: {}
+        conData: {},
+        conventions: [],
     }
   },
   async mounted() {
     this.conData = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/conventions/${this.conId}?populate=*`)
     this.conData = this.conData?.data?.data?.attributes
+
+    const con = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*")
+    this.conventions = con.data.data
+
+    // const con = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*");
+    // for (let i = 0; i < con.data.data.length; i++) {
+    //   if (this.$options.filters.others(con.data.data[i]) !== undefined) {
+    //     this.conventions.push(this.$options.filters.location(con.data.data[i]))
+    //   }
+    // }
+  },
+  methods: {
+    goToConvention(conId) {
+      this.$router.push(`/convention/${conId}`);
+    },
   }
+//   filters: {
+//     others: (val) => {
+//       if (val.attributes.id != this.conId) {
+//         return val
+//       }
+//     }
+//   }
 }
 </script>
 
@@ -85,5 +113,9 @@ export default {
     padding: 2.7778vw 0 !important; /*40px 0*/
     width: 50.6944vw !important; /*730px*/
     height: 60.8333vw !important; /*876px*/
+}
+
+.convention-page-container-cons {
+    text-align: center !important;
 }
 </style>
