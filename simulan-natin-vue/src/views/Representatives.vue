@@ -71,33 +71,35 @@ export default {
     };
   },
   async mounted() {
-    const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
-    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
+    const rep_object = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
+    const pro_object = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
 
-    for (let i = 0; i < rep.data.data.length; i++) {
-      if (this.$options.filters.location(rep.data.data[i]) !== undefined) {
-        this.representatives.push(this.$options.filters.location(rep.data.data[i]))
+    const rep = rep_object.data.data
+
+    for (let i = 0; i < rep.length; i++) {
+      if (this.$options.filters.location(rep[i]) !== undefined) {
+        this.representatives.push(this.$options.filters.location(rep[i]))
       }
     }
-    this.provinces = pro.data.data;
+    this.provinces = pro_object.data.data;
   },
   methods: {
-    addLocFilter(toAdd) {
-      if (!this.locFilter.includes(toAdd)) {
-        this.locFilter.push(toAdd)
-      }
-      this.provinces = this.provinces.filter((province) => province !== toAdd)
-    },
-    removeLocFilter(toRemove){
-      if (!this.provinces.includes(toRemove)) {
-        this.provinces.push(toRemove)
-      }
-      this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
-    },
+    // addLocFilter(toAdd) {
+    //   if (!this.locFilter.includes(toAdd)) {
+    //     this.locFilter.push(toAdd)
+    //   }
+    //   this.provinces = this.provinces.filter((province) => province !== toAdd)
+    // },
+    // removeLocFilter(toRemove){
+    //   if (!this.provinces.includes(toRemove)) {
+    //     this.provinces.push(toRemove)
+    //   }
+    //   this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
+    // },
   },
   filters: {
     location: (val) => {
-      if (val.attributes.province.data.attributes.name == 'Cavite') {
+      if (val.attributes.province.data.attributes.name == 'Laguna') {
         return val
       }
     }
