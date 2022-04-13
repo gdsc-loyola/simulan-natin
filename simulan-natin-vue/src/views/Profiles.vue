@@ -1,6 +1,5 @@
 <template>
     <div class="profiles-page">
-        <div>{{repData}}</div>
         <section class="profiles-page-container-info d-flex flex-column">
             <div class="profiles-page-head">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</div>
             <div class="d-flex align-items-center">
@@ -82,7 +81,8 @@ export default {
     }
   },
   async mounted() {
-    this.repData = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)?.data?.data?.attributes
+    this.repData = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)
+    this.repData = this.repData?.data?.data?.attributes
   }
 }
 </script>

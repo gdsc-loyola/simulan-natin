@@ -11,41 +11,41 @@
       </div>
     </section>
     <section class="representatives-page-cards">
-      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative"/>
+      <RepresentativeCard v-for="representative in representatives" :key="representative?.id" :repData="representative"/>
     </section>
   </div>
     
-    <!-- <div>
-      <section class="al-representatives-top">
-        <div class="dropdown al-inline-block al-padding-v12">
-          <button type="button" class="btn al-filter-button dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Location Filter
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li class="dropdown-item" v-for="province in provinces" :key="province.id" @click="addLocFilter(province)">
-              {{ province.attributes.name }}
-            </li>
-          </ul>
-        </div>
-        <div class="al-padding-h16">
-          <span class="badge rounded-pill al-bg-primary-blue al-pill-badge" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
-        </div>
-      </section>
+  <!-- <div>
+    <section class="al-representatives-top">
+      <div class="dropdown al-inline-block al-padding-v12">
+        <button type="button" class="btn al-filter-button dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Location Filter
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li class="dropdown-item" v-for="province in provinces" :key="province.id" @click="addLocFilter(province)">
+            {{ province.attributes.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="al-padding-h16">
+        <span class="badge rounded-pill al-bg-primary-blue al-pill-badge" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
+      </div>
+    </section>
 
-      <section class="al-representatives-bottom">
+    <section class="al-representatives-bottom">
 
-        <div class="al-representative-card" v-for="representative in representatives" :key="representative.id" @click="goToProfiles()">
-          <div class="al-representative-card-content">
-            <img :src="`https://simulan-natin-cms.herokuapp.com${representative.attributes.photo.data.attributes.url}`" class="rounded-circle al-representative-card-content-photo" alt="..." width="77" height="77">
-            <h3 class="al-representative-card-content-name"> {{ representative.attributes.name_short }} </h3>
-            <sub class="al-representative-card-content-location">{{ representative.attributes.province.data.attributes.name }}, District {{ representative.attributes.district.data.attributes.number }}</sub>
-            <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy1</span>
-            <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy2</span>
-            <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy3</span>
-          </div>
+      <div class="al-representative-card" v-for="representative in representatives" :key="representative.id" @click="goToProfiles()">
+        <div class="al-representative-card-content">
+          <img :src="`https://simulan-natin-cms.herokuapp.com${representative.attributes.photo.data.attributes.url}`" class="rounded-circle al-representative-card-content-photo" alt="..." width="77" height="77">
+          <h3 class="al-representative-card-content-name"> {{ representative.attributes.name_short }} </h3>
+          <sub class="al-representative-card-content-location">{{ representative.attributes.province.data.attributes.name }}, District {{ representative.attributes.district.data.attributes.number }}</sub>
+          <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy1</span>
+          <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy2</span>
+          <span class="badge rounded-pill al-bg-primary-blue al-pill-badge">Advocacy3</span>
         </div>
-      </section>
-    </div> -->
+      </div>
+    </section>
+  </div> -->
 </template>
 
 <script>
@@ -65,34 +65,42 @@ export default {
   data() {
     return {
       representatives: [],
-      // provinces: [],
+      provinces: [],
 
-      // locFilter: [],
+      locFilter: [],
     };
   },
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
-    // const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
+    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
 
-    this.representatives = rep.data.data;
-    // this.provinces = pro.data.data;
+    for (let i = 0; i < rep.data.data.length; i++) {
+      if (this.$options.filters.location(rep.data.data[i]) !== undefined) {
+        this.representatives.push(this.$options.filters.location(rep.data.data[i]))
+      }
+    }
+    this.provinces = pro.data.data;
   },
   methods: {
-    goToProfiles() {
-      this.$router.push('/profiles');
+    addLocFilter(toAdd) {
+      if (!this.locFilter.includes(toAdd)) {
+        this.locFilter.push(toAdd)
+      }
+      this.provinces = this.provinces.filter((province) => province !== toAdd)
     },
-    // addLocFilter(toAdd) {
-    //   if (!this.locFilter.includes(toAdd)) {
-    //     this.locFilter.push(toAdd)
-    //   }
-    //   this.provinces = this.provinces.filter((province) => province !== toAdd)
-    // },
-    // removeLocFilter(toRemove){
-    //   if (!this.provinces.includes(toRemove)) {
-    //     this.provinces.push(toRemove)
-    //   }
-    //   this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
-    // },
+    removeLocFilter(toRemove){
+      if (!this.provinces.includes(toRemove)) {
+        this.provinces.push(toRemove)
+      }
+      this.locFilter = this.locFilter.filter((loc) => loc !== toRemove)
+    },
+  },
+  filters: {
+    location: (val) => {
+      if (val.attributes.province.data.attributes.name == 'Cavite') {
+        return val
+      }
+    }
   }
 }
 </script>

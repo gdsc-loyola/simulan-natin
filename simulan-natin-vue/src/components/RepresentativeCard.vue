@@ -1,15 +1,15 @@
 <template>
   <div class="representative-card-component">
     <div class="representative-card-component-card d-flex justify-content-center align-items-center" @click="goToProfiles()">
-      <img :src="repData.attributes.photo.data?.attributes.url" class="representative-card-component-image rounded-circle" alt="...">
+      <img :src="repData?.attributes?.photo.data.attributes.url" class="representative-card-component-image rounded-circle" alt="...">
       <div class="representative-card-component-container-details d-flex flex-column">
         <div class="d-flex align-items-center">
-          <div class="representative-card-component-head">{{ repData.attributes.name }}</div>
-          <div class="representative-card-component-location">{{ repData.attributes.province.data?.attributes.name }}, District {{ repData.attributes.district.data?.attributes.number }}</div>
+          <div class="representative-card-component-head">{{ repData?.attributes?.name }}</div>
+          <div class="representative-card-component-location">{{ repData?.attributes?.province.data?.attributes.name }}, District {{ repData?.attributes?.district.data?.attributes.number }}</div>
           <!-- <div class="representative-card-component-location">ProvinceName, District N</div> -->
         </div>
         <div>
-          <span class="badge rounded-pill representative-card-component-pill">{{ repData.attributes.advocacies.data[0]?.attributes.name }}</span>
+          <span class="badge rounded-pill representative-card-component-pill">{{ repData?.attributes?.advocacies.data[0]?.attributes.name }}</span>
           <!-- <span class="badge rounded-pill representative-card-component-pill">Advocacy</span> -->
         </div>
       </div>
