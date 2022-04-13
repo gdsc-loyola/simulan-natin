@@ -4,12 +4,12 @@
             <div class="profiles-page-head">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</div>
             <div class="d-flex align-items-center">
                 <div class="profile-page-image-border rounded-circle">
-                    <img src="../assets/logo.png" class="profile-page-image rounded-circle" alt="...">
+                    <img :src="repData?.photo?.data?.attributes.url" class="profile-page-image rounded-circle" alt="...">
                 </div>
                 <div class="d-flex flex-column profiles-page-container-details">
-                    <div class="profiles-page-name">LastName, FirstName M.I.</div>
-                    <div class="profiles-page-location-party">Province, Nth District</div>
-                    <div class="profiles-page-location-party">PoliticalParty</div>
+                    <div class="profiles-page-name">{{ repData?.name }}</div>
+                    <div class="profiles-page-location-party">{{ repData?.province?.data?.attributes.name }}, District {{ repData?.district?.data?.attributes.number }}</div>
+                    <div class="profiles-page-location-party">{{ repData?.political_party }}</div>
                     <div>
                         <!-- Button trigger modal -->
                         <button type="button" class="profiles-page-more-information btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -33,11 +33,6 @@
         </section>
         <section class="profiles-page-container-bills">
             <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
         </section>
 
         <!-- Modal -->
@@ -48,14 +43,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                     <div class="profiles-page-modal-head">EDUCATION</div>
-                     <div class="profiles-page-modal-body-education">Lorem ipsum dolor sit amet</div>
-                     <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
-                     <ul class="profiles-page-modal-body-membership">
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                     </ul>
+                    <div class="profiles-page-modal-head">EDUCATION</div>
+                    <div class="profiles-page-modal-body-education">{{ repData?.educational_background }}</div>
+                    <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
+                    <div class="profiles-page-modal-body-membership">{{ repData?.committee_members }}</div>
                 </div>
                 </div>
             </div>
@@ -67,11 +58,23 @@
 import BillCard from '../components/BillCard.vue'
 // import SearchBar from '../components/SearchBar.vue'
 
+import axios from 'axios'
+
 export default {
   name: 'App',
   components: {
     BillCard,
     // SearchBar
+  },
+  data() {
+    return {
+        repId: this.$route.params.id,
+        repData: {}
+    }
+  },
+  async mounted() {
+    this.repData = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)
+    this.repData = this.repData?.data?.data?.attributes
   }
 }
 </script>

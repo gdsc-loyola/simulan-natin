@@ -5,7 +5,7 @@
             <div class="conventions-page-top-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare sagittis amet, sed sed pellentesque a ante.</div>
         </section>
         <section class="conventions-page-container-cons">
-            <ConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention()"/>
+            <ConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id)"/>
         </section>
     </div>
 </template>
@@ -26,13 +26,13 @@ export default {
     };
   },
   async mounted() {
-    const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*");
+    const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*")
 
-    this.conventions = rep.data.data;
+    this.conventions = rep.data.data
   },
   methods: {
-    goToConvention() {
-      this.$router.push('/convention');
+    goToConvention(conId) {
+      this.$router.push(`/convention/${conId}`);
     },
   }
 }

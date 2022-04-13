@@ -18,7 +18,7 @@ const routes = [
         component: Representatives
     },
     {
-        path: '/profiles',
+        path: '/profiles/:id',
         name: 'Profiles',
         component: Profiles
     },
@@ -28,7 +28,7 @@ const routes = [
         component: Conventions
     },
     {
-        path: '/convention',
+        path: '/convention/:id',
         name: 'Convention',
         component: Convention
     },

@@ -20,7 +20,7 @@
       </div>
     </section>
     <section class="representatives-page-cards">
-      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative" @click="goToProfiles()"/>
+      <RepresentativeCard v-for="representative in representatives" :key="representative.id" :repData="representative" @click="goToProfiles(representative.id)"/>
     </section>
   </div>
 </template>
@@ -48,13 +48,13 @@ export default {
   },
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
-    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
+    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?name");
     this.representatives = rep.data.data;
     this.provinces = pro.data.data;
   },
   methods: {
-    goToProfiles() {
-      this.$router.push('/profiles');
+    goToProfiles(repId) {
+      this.$router.push(`/profiles/${repId}`);
     },
     addLocFilter(toAdd) {
       if (!this.locFilter.includes(toAdd)) {
