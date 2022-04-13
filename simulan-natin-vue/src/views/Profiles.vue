@@ -4,11 +4,11 @@
             <div class="profiles-page-head">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</div>
             <div class="d-flex align-items-center">
                 <div class="profile-page-image-border rounded-circle">
-                    <img src="../assets/logo.png" class="profile-page-image rounded-circle" alt="...">
+                    <img :src="repData?.photo?.data?.attributes.url" class="profile-page-image rounded-circle" alt="...">
                 </div>
                 <div class="d-flex flex-column profiles-page-container-details">
                     <div class="profiles-page-name">{{ repData?.name }}</div>
-                    <div class="profiles-page-location-party">{{ repData?.province?.data?.attributes.name }}, {{repData?.district?.data?.attributes.number}}th District</div>
+                    <div class="profiles-page-location-party">{{ repData?.province?.data?.attributes.name }}, District {{ repData?.district?.data?.attributes.number }}</div>
                     <div class="profiles-page-location-party">{{ repData?.political_party }}</div>
                     <div>
                         <!-- Button trigger modal -->
@@ -18,25 +18,20 @@
                     </div>
                 </div>
             </div>
-            <div class="profiles-page-image-note">The following are this representative's top platforms:</div>
+            <!-- <div class="profiles-page-image-note">The following are this representative’s top platforms:</div>
             <div class="profiles-page-image-note-small">*based on laws enacted</div>
             <div>
                 <span class="profiles-page-advocacy-pill badge rounded-pill">ADVOCACY (N)</span>
                 <span class="profiles-page-advocacy-add badge rounded-pill">+</span>
-            </div>
-            <div class="d-flex align-items-center">
+            </div> -->
+            <!-- <div class="d-flex align-items-center">
                 <div class="profiles-page-search">
                     <SearchBar/>
                 </div>
                 <div class="profiles-page-law-count badge rounded-pill">N laws</div>
-            </div>
+            </div> -->
         </section>
         <section class="profiles-page-container-bills">
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
             <BillCard/>
         </section>
 
@@ -48,14 +43,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                     <div class="profiles-page-modal-head">EDUCATION</div>
-                     <div class="profiles-page-modal-body-education">Lorem ipsum dolor sit amet</div>
-                     <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
-                     <ul class="profiles-page-modal-body-membership">
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                     </ul>
+                    <div class="profiles-page-modal-head">EDUCATION</div>
+                    <div class="profiles-page-modal-body-education">{{ repData?.educational_background }}</div>
+                    <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
+                    <div class="profiles-page-modal-body-membership">{{ repData?.committee_members }}</div>
                 </div>
                 </div>
             </div>
@@ -66,13 +57,15 @@
 <script>
 import axios from 'axios'
 import BillCard from '../components/BillCard.vue'
-import SearchBar from '../components/SearchBar.vue'
+// import SearchBar from '../components/SearchBar.vue'
+
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     BillCard,
-    SearchBar
+    // SearchBar
   },
   data() {
     return {
@@ -131,8 +124,11 @@ export default {
 .profile-page-image {
     width: 16.6667vw !important; /*240px*/
     height: 16.6667vw !important; /*240px*/
+
     border: 2px solid #293C92;
     border-radius: 8.3333vw; /*120px*/
+    object-fit: cover;
+    object-position: 0 0;
 }
 
 .profiles-page-container-details {
@@ -239,7 +235,8 @@ export default {
 }
 
 .profiles-page-container-bills {
-   text-align: center !important; 
+    padding-bottom: 1.6667vw !important; /*24px*/
+    text-align: center !important; 
 }
 
 /*modal is not relative to 1440*/

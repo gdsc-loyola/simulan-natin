@@ -3,6 +3,7 @@ import Home from '../views/Home'
 import Representatives from '../views/Representatives'
 import Profiles from '../views/Profiles'
 import Conventions from '../views/Conventions'
+import Convention from '../views/Convention'
 import About from '../views/About'
 
 const routes = [
@@ -25,6 +26,11 @@ const routes = [
         path: '/conventions',
         name: 'Conventions',
         component: Conventions
+    },
+    {
+        path: '/convention/:id',
+        name: 'Convention',
+        component: Convention
     },
     {
         path: '/about',
