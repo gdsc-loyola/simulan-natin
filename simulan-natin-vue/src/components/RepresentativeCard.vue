@@ -35,7 +35,9 @@ export default {
   margin: 0.8333vw !important; /*12px*/
   width: 40.8333vw !important; /*588px*/
   height: 10vw !important; /*144px*/
-  border: 2px solid #293C92;
+  color: #333333;
+
+  border: 0.2vw solid #293C92; /*2px*/
   box-sizing: border-box;
   border-radius: 0.5556vw; /*8px*/
   cursor: pointer !important;
@@ -45,7 +47,7 @@ export default {
   width: 5.3764vw !important; /*77.42px*/
   height: 5.3764vw !important; /*77.42px*/
 
-  border: 2px solid #293C92;
+  border: 0.2vw solid #293C92; /*2px*/
   object-fit: cover;
   object-position: 0 0;
 }
@@ -57,7 +59,6 @@ export default {
 .representative-card-component-head {
   display: inline-block !important;
   width: 22.3542vw !important; /*321.9px*/
-  color: #333333;
   font-family: 'AvenirNext-Bold';
   font-weight: 700;
   font-size: 1.6667vw; /*24px*/
@@ -67,7 +68,6 @@ export default {
 .representative-card-component-location {
   width: 5.9028vw !important; /*85px*/
   height: 2.5vw !important; /*36px*/
-  color: #333333;
   font-family: 'AvenirNext';
   font-style: normal;
   font-weight: 700;
@@ -88,5 +88,15 @@ export default {
 
   text-transform: uppercase;
   cursor: pointer;
+}
+
+/* hover state */
+.representative-card-component-card:hover {
+  color: #FAFAFA !important;
+  background: #293C92 !important;
+}
+
+.representative-card-component-card:hover .representative-card-component-image {
+  border: 0.2vw solid #FAFAFA; /*2px*/
 }
 </style>

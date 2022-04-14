@@ -16,6 +16,9 @@ export default {
     NavBar,
     Footer
   },
+  mounted() {
+    document.title = "Simulan Natin 2022";
+  }
 }
 </script>
 
@@ -23,8 +26,14 @@ export default {
 /*Universal Styles*/
 #app {
   font-family: "AvenirNext";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -webkit-font-smoothing: antialiased !important; /*safari mac nicer*/
+  -moz-osx-font-smoothing: grayscale !important; /*fix fatty ff on mac*/
+  text-rendering: optimizeLegibility !important; 
+  text-transform: none; /*mac ff fix*/ 
+  speak: none;
+  font-style: normal;
+  font-variant: normal;
   
   /* Simulan Natin 2022 Colors/Black (#333333) */
   color: #333333;
