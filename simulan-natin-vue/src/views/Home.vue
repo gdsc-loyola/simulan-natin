@@ -15,7 +15,7 @@
         <section class="home-page-conventions">
             <div class="home-page-body">Take <b>YOUR</b> first step towards enabling good governance through our virtual conventions!</div>
             <div class="home-page-conventions-container">
-                <SmallConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id)"/>
+                <SmallConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id-1)"/>
             </div>
         </section>
     </div>
@@ -46,6 +46,7 @@ export default {
   methods: {
     goToConvention(conId) {
       this.$router.push(`/convention/${conId}`);
+      window.scrollTo(0, 0);
     },
   }
 }
