@@ -55,8 +55,8 @@ export default {
   },
   async mounted() {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
-    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?name");
-    const adv = await axios.get("https://simulan-natin-cms.herokuapp.com/api/advocacies?name");
+    const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
+    const adv = await axios.get("https://simulan-natin-cms.herokuapp.com/api/advocacies?populate=*");
     
     for (let i = 0; i < rep.data.data.length; i++) {
       if (this.$options.filters.location(rep.data.data[i]) !== undefined) {

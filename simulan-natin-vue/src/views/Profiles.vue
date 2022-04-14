@@ -24,7 +24,7 @@
             <div class="profiles-page-image-note">The following are <b>approved</b> laws under the representative’s top platform (at most 10):</div>
         </section>
         <section class="profiles-page-container-bills">
-            <BillCard/>
+            <BillCard v-for="bill in bills" :key="bill.id" :billData="bill"/>
         </section>
 
         <!-- Modal -->
@@ -59,12 +59,16 @@ export default {
   data() {
     return {
         repId: this.$route.params.id,
-        repData: {}
+        repData: {},
+        bills: []
     }
   },
   async mounted() {
-    this.repData = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)
-    this.repData = this.repData?.data?.data?.attributes
+    const rep = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)
+    const bil = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate[bills][populate]=*`)
+    
+    this.repData = rep?.data?.data?.attributes
+    this.bills = bil?.data?.data?.attributes?.bills?.data
   }
 }
 </script>
