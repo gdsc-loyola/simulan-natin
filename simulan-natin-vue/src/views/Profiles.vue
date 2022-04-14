@@ -36,9 +36,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="profiles-page-modal-head">EDUCATION</div>
-                    <div class="profiles-page-modal-body-education">{{ repData?.educational_background }}</div>
+                    <div class="profiles-page-modal-body-education" v-html="repData?.educational_background?.split('\n').join('<br/>')"/>
                     <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
-                    <div class="profiles-page-modal-body-membership">{{ repData?.committee_members }}</div>
+                    <div class="profiles-page-modal-body-membership" v-html="repData?.committee_members?.split('\n').join('<br/>')"/>
                 </div>
                 </div>
             </div>

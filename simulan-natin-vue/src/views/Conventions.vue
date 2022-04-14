@@ -33,6 +33,7 @@ export default {
   methods: {
     goToConvention(conId) {
       this.$router.push(`/convention/${conId}`);
+      window.scrollTo(0, 0);
     },
   }
 }
