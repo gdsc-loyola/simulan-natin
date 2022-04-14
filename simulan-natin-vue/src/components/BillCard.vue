@@ -31,7 +31,7 @@ export default {
   width: 40.5556vw !important; /*584px*/
   height: 13.75vw !important; /*198px*/
 
-  border: 2px solid #293C92;
+  border: 0.2vw solid #293C92; /*2px*/
   box-sizing: border-box;
   border-radius: 0.5556vw; /*8px*/
   cursor: pointer !important;
@@ -62,8 +62,8 @@ export default {
   color: #FAFAFA;
   font-family: 'AvenirNext-Bold';
   font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.25vw; /*18px*/
+  line-height: 1.5278vw; /*22px*/
 }
 
 .bill-card-component-top-container-advocacy {

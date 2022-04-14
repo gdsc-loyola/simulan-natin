@@ -11,7 +11,7 @@
         </section>
         <section  class="voter-engagement-awareness d-flex justify-content-evenly">
             <div class="voter-engagement-awareness-card">
-                <div class="voter-engagement-awareness-head"><div class="voter-engagement-awareness-highlight"></div>Voter Engagement</div>
+                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow"><div class="voter-engagement-awareness-head">Voter Engagement</div>
                 <div class="voter-engagement-awareness-body">To enhance civic education and active participation in different communities, settings, and/or sectors by:</div>
                 <ul class="voter-engagement-awareness-list">
                     <li>Providing issues-based learning sessions</li>
@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <div class="voter-engagement-awareness-card">
-                <div class="voter-engagement-awareness-head"><div class="voter-engagement-awareness-highlight"></div>Voter Awareness</div>
+                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow"><div class="voter-engagement-awareness-head">Voter Awareness</div>
                 <div class="voter-engagement-awareness-body">To provide in-depth knowledge and appreciation of youth participation in electoral cycles through:</div>
                 <ul class="voter-engagement-awareness-list">
                     <li>Information campaigns based on youth concerns</li>
@@ -144,20 +144,20 @@
     width: 26.6667vw !important; /*384px*/ 
 }
 
+.voter-engagement-awareness-arrow {
+    display: inline-block !important;
+    margin-right: 1.6667vw; /*24px*/
+    width: 6.75vw !important; /*97.2px*/
+    height: 5.9722vw !important; /*86px*/
+}
+
 .voter-engagement-awareness-head {
+    display: inline-block !important;
     color: #293C92;
     font-family: 'CoolBritannia';
     font-weight: 400;
     font-size: 2.2222vw; /*32px*/
     line-height: 1.25vw; /*18px*/
-}
-
-.voter-engagement-awareness-highlight {
-    display: inline-block !important;
-    margin-right: 1.6667vw !important; /*24px*/
-    width: 6.7361vw !important; /*97px*/
-    height: 1.7361vw !important; /*25px*/
-    background: #C4C4C4;
 }
 
 .voter-engagement-awareness-body {
@@ -205,7 +205,7 @@
 
 .campaign-initiative-card {
     margin-top: 2.5694vw !important; /*37px*/
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.2vw 0.2778vw rgba(0, 0, 0, 0.25); /*0px 2px 4px*/
     background: #FAFAFA;
 }
 
@@ -264,9 +264,9 @@
     padding-top: 2.2222vw !important; /*32px*/
     width: 39.1667vw !important; /*564px*/
     height: 39.1667vw !important; /*564px*/
-    border: 2px solid #293C92;
+    border: 0.2vw solid #293C92; /*2px*/
     box-sizing: border-box;
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0 0.2vw 0.2778vw rgba(0, 0, 0, 0.25)); /*0 2px 4px*/
     border-radius: 2.7778vw !important; /*40px*/ 
 }
 

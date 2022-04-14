@@ -5,7 +5,7 @@
             <div class="conventions-page-top-body">Explore our knowledge sharing sessions on election-related issues and concerns that engage with various sectors and partners.</div>
         </section>
         <section class="conventions-page-container-cons">
-            <ConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id)"/>
+            <ConventionCard v-for="convention in conventions" :key="convention.id" :conData="convention" @click="goToConvention(convention.id-1)"/>
         </section>
     </div>
 </template>

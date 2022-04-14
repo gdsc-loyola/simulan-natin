@@ -106,7 +106,7 @@ export default {
 .profile-page-image-border {
     width: 17.2222vw !important; /*248px*/
     height: 17.2222vw !important; /*248px*/
-    border: 3px solid #293C92;
+    border: 0.2083vw solid #293C92; /*3px*/
     text-align: center;
 }
 
@@ -114,7 +114,7 @@ export default {
     width: 16.6667vw !important; /*240px*/
     height: 16.6667vw !important; /*240px*/
 
-    border: 2px solid #293C92;
+    border: 0.2vw solid #293C92; /*2px*/
     border-radius: 8.3333vw; /*120px*/
     object-fit: cover;
     object-position: 0 0;
@@ -155,7 +155,7 @@ export default {
     font-size: 0.9722vw; /*14px*/
     line-height: 1.1111vw; /*16px*/
 
-    border: 1px solid #293C92;
+    border: 0.0694vw solid #293C92; /*1px*/
     box-sizing: border-box;
     border-radius: 0.2778vw; /*4px*/
 }

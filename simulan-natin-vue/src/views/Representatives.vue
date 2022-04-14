@@ -12,9 +12,9 @@
               Location Filter
           </button>
           <ul class="dropdown-menu filter-button-component-dropdown" aria-labelledby="dropdownMenuButton1">
-              <li v-for="province in provinces" :key="province.id" @click="addLocFilter(province)"><a class="dropdown-item filter-button-component-dropdown-item" href="#">{{ province.attributes.name }}</a></li>
+              <li v-for="province in provinces" :key="province.id" @click="addLocFilter(province)" class="dropdown-item filter-button-component-dropdown-item">{{ province.attributes.name }}</li>
           </ul>
-          <span class="badge rounded-pill filter-button-component-location-filter" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }}</span>
+          <span class="badge rounded-pill filter-button-component-location-filter" v-for="loc in locFilter" :key="loc.id" @click="removeLocFilter(loc)">{{ loc.attributes.name }} <button class="btn-close" style="width:0.6944vw;height:0.6944vw;padding:0;"></button></span>
         </div>
       </div>
     </section>

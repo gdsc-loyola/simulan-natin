@@ -114,7 +114,7 @@ export default {
 
 .home-page-conventions-container {
     display: inline-block !important;
-    padding: 68px 0 !important; /*68px*/
+    padding: 4.7222vw 0 !important; /*68px*/
     width: 56.9444vw !important; /*820px*/
 }
 </style>
