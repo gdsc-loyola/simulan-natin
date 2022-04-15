@@ -10,7 +10,8 @@
         </section>
         <section class="home-page-map">
             <div class="home-page-body">They’re making a difference in <b>YOUR</b> neighborhood.</div>
-            <img src="../assets/HomeWordCloud.png" alt="" class="home-page-map-image">
+            <!-- <img src="../assets/HomeWordCloud.png" alt="" class="home-page-map-image"> -->
+            <HomeInteractiveMap/>
         </section>
         <section class="home-page-conventions">
             <div class="home-page-body">Take <b>YOUR</b> first step towards enabling good governance through our virtual conventions!</div>
@@ -23,6 +24,7 @@
 
 <script>
 import HomeCarousel from '../components/HomeCarousel.vue'
+import HomeInteractiveMap from '../components/HomeInteractiveMap.vue'
 import SmallConventionCard from '../components/SmallConventionCard.vue'
 
 import axios from "axios";
@@ -31,6 +33,7 @@ export default {
   name: 'App',
   components: {
     HomeCarousel,
+    HomeInteractiveMap,
     SmallConventionCard
   },
   data() {
@@ -94,7 +97,7 @@ export default {
 
 .home-page-map {
     padding-top: 6.25vw !important; /*90px*/
-    height: 55.5556vw !important; /*800px*/
+    height: 62.5vw !important; /*900px*/
 
     text-align: center !important;
 }
