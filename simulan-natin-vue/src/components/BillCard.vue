@@ -5,7 +5,7 @@
         <div class="bill-card-component-top-label">House Bill / Resolution No.</div>
         <div class="bill-card-component-top-code">{{ billData.attributes.code }}</div>
       </div>
-      <div class="bill-card-component-top-container-advocacy">
+      <div class="bill-card-component-top-container-advocacy d-flex justify-content-end">
         <span class="bill-card-component-top-advocacy badge rounded-pill" :style="`background: ${billData.attributes.advocacy.data.attributes.bg_color}; color: ${billData.attributes.advocacy.data.attributes.text_color};`">{{ billData.attributes.advocacy.data.attributes.name }}</span>
       </div>
     </div>

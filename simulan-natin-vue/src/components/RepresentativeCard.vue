@@ -7,7 +7,7 @@
           <div class="representative-card-component-head">{{ repData.attributes.name.split(" ")[0] }} {{ repData.attributes.name.split(" ")[1]}}</div>
           <div class="representative-card-component-location">{{ repData.attributes.province.data?.attributes.name }}, District {{ repData.attributes.district.data?.attributes.number }}</div>
         </div>
-        <div>
+        <div class="d-flex">
           <span class="badge rounded-pill representative-card-component-pill" :style="`background: ${repData.attributes.advocacies.data[0]?.attributes.bg_color}; color: ${repData.attributes.advocacies.data[0]?.attributes.text_color};`">{{ repData.attributes.advocacies.data[0]?.attributes.name }}</span>
         </div>
       </div>
