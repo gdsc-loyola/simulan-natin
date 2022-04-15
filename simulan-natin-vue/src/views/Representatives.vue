@@ -30,6 +30,7 @@
         <img v-if="loading == true" class="loading" src="../assets/SimulanNatin2022LoadingGIF.gif">
       </section>
     </section>
+    <section v-if="filtered_reps.length == 0" class="representatives-page-cards">No Representative with this filter</section>
     <section class="representatives-page-cards">
       <RepresentativeCard v-for="representative in filtered_reps" :key="representative.id" :repData="representative" @click="goToProfiles(representative.id)"/>
     </section>
