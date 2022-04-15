@@ -1,6 +1,17 @@
 <template>
     <div>
-        <div class="test">lol</div>
+        <div class="footer-component-top d-flex justify-content-center align-items-center">
+            <div class="footer-component-container">
+                <img src="../assets/SimulanNatin2022HorizontalLogosWhite.png" alt="SimulanNatin2022WHLogo" class="footer-component-image">
+                <div class="footer-component-copyright">© 2022 GoodGov PH. All Rights Reserved.</div>
+            </div>
+            <a href="https://www.facebook.com/GoodGovPH"><div class="footer-component-logo"><img src="../assets/FaceBookLogoBlue.png" alt="" class="h-100"></div></a>
+            <a href="https://twitter.com/GoodGovPH"><div class="footer-component-logo"><img src="../assets/TwitterLogoBlue.png" alt="" class="w-100"></div></a>
+            <a href="https://goodgov.ph/"><div class="footer-component-logo"><img src="../assets/WWWLogoBlue.png" alt="" class="h-100"></div></a>
+        </div>
+        <div class="footer-component-bottom">
+            Passionately Designed and Developed by Developer Student Clubs Loyola
+        </div>
     </div>
 </template>
 
@@ -11,33 +22,57 @@ export default {
 </script>
 
 <style scoped>
-.test {
-/* Frame 197 */
+/* Relative 1440 */
+.footer-component-top {
+    width: 100% !important; /*1440px*/
+    height: 17.7778vw !important; /*256px*/
+    background: #293C92;
+}
 
+.footer-component-container {
+    width: 68.8889vw !important; /*992px*/
+}
 
-/* Auto layout */
+.footer-component-image {
+    margin-bottom: 1.6667vw !important; /*24px*/
+    width: 16.1806vw !important; /*233px*/  
+    height: 2.7778vw !important; /*40px*/
+}
 
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 80px;
+.footer-component-copyright {
+    color: #FAFAFA;
+    font-family: 'AvenirNext';
+    font-weight: 500;
+    font-size: 1.6667vw; /*24px*/
+    line-height: 2.2222vw; /*32px*/
+}
 
-position: static;
-width: 1440px;
-height: 256px;
-left: 0px;
-top: 0px;
+.footer-component-logo {
+    display: flex !important;
+    padding: 1.4236vw !important; /*20.5px*/
+    margin: 0 0.8333vw !important; /*0px 12px*/
+    width: 5.5556vw !important; /*80px*/
+    height: 5.5556vw !important; /*80px*/
+    background: #FAFAFA;
 
-/* Simulan Natin 2022 Colors/Main Blue */
+    border-radius: 2.1667vw; /*31.2px*/
+    justify-content: center;
+    align-items: center;
+}
 
-background: #293C92;
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
-margin: 0px 0px;
+.footer-component-bottom {
+    display: flex !important;
+    width: 100% !important; /*1440px*/
+    height: 7.7778vw !important; /*112px*/
+    background: #FAFAFA;
+    color: #293C92;
+    font-family: 'AvenirNext';
+    font-weight: 400;
+    font-size: 1.6667vw; /*24px*/
+    line-height: 2.2222vw; /*32px*/
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 </style>

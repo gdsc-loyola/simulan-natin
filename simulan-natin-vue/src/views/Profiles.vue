@@ -4,40 +4,27 @@
             <div class="profiles-page-head">REPUBLIC OF THE PHILIPPINES  |  HOUSE OF REPRESENTATIVES 18TH  CONGRESS DISTRICT REPRESENTATIVES</div>
             <div class="d-flex align-items-center">
                 <div class="profile-page-image-border rounded-circle">
-                    <img src="../assets/logo.png" class="profile-page-image rounded-circle" alt="...">
+                    <img :src="repData?.photo?.data?.attributes.url" class="profile-page-image rounded-circle" alt="...">
                 </div>
                 <div class="d-flex flex-column profiles-page-container-details">
-                    <div class="profiles-page-name">LastName, FirstName M.I.</div>
-                    <div class="profiles-page-location-party">Province, Nth District</div>
-                    <div class="profiles-page-location-party">PoliticalParty</div>
+                    <div class="profiles-page-name">{{ repData?.name }}</div>
+                    <div class="profiles-page-location-party">{{ repData?.province?.data?.attributes.name }}, District {{ repData?.district?.data?.attributes.number }}</div>
+                    <div class="profiles-page-location-party">{{ repData?.political_party }}</div>
                     <div>
                         <!-- Button trigger modal -->
                         <button type="button" class="profiles-page-more-information btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         MORE INFORMATION
                         </button>
                     </div>
+                    <div>
+                        <div class="profiles-page-advocacy-pill badge rounded-pill" :style="`background: ${repData?.advocacies?.data[0]?.attributes.bg_color}; color: ${repData?.advocacies?.data[0]?.attributes.text_color};`">{{ repData?.advocacies?.data[0]?.attributes.name }}</div>
+                    </div>
                 </div>
             </div>
-            <div class="profiles-page-image-note">The following are this representative’s top platforms:</div>
-            <div class="profiles-page-image-note-small">*based on laws enacted</div>
-            <div>
-                <span class="profiles-page-advocacy-pill badge rounded-pill">ADVOCACY (N)</span>
-                <span class="profiles-page-advocacy-add badge rounded-pill">+</span>
-            </div>
-            <div class="d-flex align-items-center">
-                <div class="profiles-page-search">
-                    <SearchBar/>
-                </div>
-                <div class="profiles-page-law-count badge rounded-pill">N laws</div>
-            </div>
+            <div class="profiles-page-image-note">The following are <b>approved</b> laws under the representative’s top platform (at most 10):</div>
         </section>
         <section class="profiles-page-container-bills">
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
-            <BillCard/>
+            <BillCard v-for="bill in bills" :key="bill.id" :billData="bill"/>
         </section>
 
         <!-- Modal -->
@@ -48,14 +35,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                     <div class="profiles-page-modal-head">EDUCATION</div>
-                     <div class="profiles-page-modal-body-education">Lorem ipsum dolor sit amet</div>
-                     <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
-                     <ul class="profiles-page-modal-body-membership">
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Lorem ipsum dolor sit amet</li>
-                     </ul>
+                    <div class="profiles-page-modal-head">EDUCATION</div>
+                    <div class="profiles-page-modal-body-education" v-html="repData?.educational_background?.split('\n').join('<br/>')"/>
+                    <div class="profiles-page-modal-head">COMMITTEE MEMBERSHIP</div>
+                    <div class="profiles-page-modal-body-membership" v-html="repData?.committee_members?.split('\n').join('<br/>')"/>
                 </div>
                 </div>
             </div>
@@ -64,14 +47,27 @@
 </template>
 
 <script>
+import axios from 'axios'
 import BillCard from '../components/BillCard.vue'
-import SearchBar from '../components/SearchBar.vue'
 
 export default {
   name: 'App',
   components: {
     BillCard,
-    SearchBar
+  },
+  data() {
+    return {
+        repId: this.$route.params.id,
+        repData: {},
+        bills: []
+    }
+  },
+  async mounted() {
+    const rep = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate=*`)
+    const bil = await axios.get(`https://simulan-natin-cms.herokuapp.com/api/representatives/${this.repId}?populate[bills][populate]=*`)
+    
+    this.repData = rep?.data?.data?.attributes
+    this.bills = bil?.data?.data?.attributes?.bills?.data
   }
 }
 </script>
@@ -113,15 +109,18 @@ export default {
 .profile-page-image-border {
     width: 17.2222vw !important; /*248px*/
     height: 17.2222vw !important; /*248px*/
-    border: 3px solid #293C92;
+    border: 0.2083vw solid #293C92; /*3px*/
     text-align: center;
 }
 
 .profile-page-image {
     width: 16.6667vw !important; /*240px*/
     height: 16.6667vw !important; /*240px*/
-    border: 2px solid #293C92;
+
+    border: 0.2vw solid #293C92; /*2px*/
     border-radius: 8.3333vw; /*120px*/
+    object-fit: cover;
+    object-position: 0 0;
 }
 
 .profiles-page-container-details {
@@ -148,17 +147,18 @@ export default {
 
 .profiles-page-more-information {
     padding: 0.4861vw 0.9028vw !important; /*7px 13px*/
-    margin-top: 1.25vw !important; /*18px*/
+    margin-top: 0.5556vw !important; /*8px*/
+    margin-bottom: 2.2222vw !important; /*32px*/
     width: 12.4vw !important; /*171px*/
     height: 2.1vw !important; /*30px*/
     background: #293C92;
     color: #FAFAFA;
     font-family: 'AvenirNext';
-    font-weight: 700;
+    font-weight: 500;
     font-size: 0.9722vw; /*14px*/
     line-height: 1.1111vw; /*16px*/
 
-    border: 1px solid #293C92;
+    border: 0.0694vw solid #293C92; /*1px*/
     box-sizing: border-box;
     border-radius: 0.2778vw; /*4px*/
 }
@@ -172,26 +172,17 @@ export default {
     line-height: 1.25vw; /*18px*/
 }
 
-.profiles-page-image-note-small {
-    margin-bottom: 0.8333vw !important; /*12px*/
-    color: #000000;
-    font-family: 'AvenirNext-Italic';
-    font-weight: 400;
-    font-size: 0.9722vw; /*14px*/
-    line-height: 1.1111vw; /*16px*/
-}
-
 .profiles-page-advocacy-pill {
+    display: inline-block;
     padding: 0.7292vw 1.3542vw !important; /*10.5px 19.5px*/
     margin-right: 1.1111vw; /*16px*/
     margin-bottom: 1.1111vw; /*16px*/
-    background: #F4F1E5;
-    color: #B57E33;
     font-family: 'AvenirNext-Bold';
     font-weight: 700;
     font-size: 1.6667vw; /*24px*/
     line-height: 2.2222vw; /*32px*/
 
+    text-transform: uppercase;
     border-radius: 6.875vw; /*99px*/
     cursor: pointer !important;
 }
@@ -206,11 +197,6 @@ export default {
     line-height: 1vw; /*14.4px*/
 
     cursor: pointer !important;
-}
-
-.profiles-page-search {
-    margin-top: 2.2222vw !important; /*32px*/
-    width: 53.3333vw !important; /*768px*/
 }
 
 .profiles-page-law-count {
@@ -228,7 +214,8 @@ export default {
 }
 
 .profiles-page-container-bills {
-   text-align: center !important; 
+    padding-bottom: 1.6667vw !important; /*24px*/
+    text-align: center !important; 
 }
 
 /*modal is not relative to 1440*/
