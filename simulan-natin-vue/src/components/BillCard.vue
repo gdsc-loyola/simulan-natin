@@ -34,7 +34,6 @@ export default {
   border: 0.2vw solid #293C92; /*2px*/
   box-sizing: border-box;
   border-radius: 0.5556vw; /*8px*/
-  cursor: pointer !important;
   background: linear-gradient(0deg, #FAFAFA 69%, #293C92 31%);
 }
 
@@ -88,7 +87,7 @@ export default {
 
 .bill-card-component-bottom {
   padding: 1.1111vw !important; /*16px*/
-  color: #000000;
+  color: #333333;
   font-family: 'AvenirNext';
   font-weight: 400;
   font-size: 1.1111vw; /*16px*/

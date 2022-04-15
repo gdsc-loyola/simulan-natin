@@ -165,7 +165,7 @@ export default {
 
 .profiles-page-image-note {
     margin-top: 3.3333vw !important; /*48px*/
-    color: #000000;
+    color: #333333;
     font-family: 'AvenirNext';
     font-weight: 400;
     font-size: 1.1111vw; /*16px*/
@@ -221,7 +221,7 @@ export default {
 /*modal is not relative to 1440*/
 .profiles-page-modal-head {
     margin-bottom: 16px;
-    color: #000000;
+    color: #333333;
     font-family: 'AvenirNext-Bold';
     font-weight: 700;
     font-size: 18px;
@@ -230,19 +230,19 @@ export default {
 
 .profiles-page-modal-body-education {
     margin-bottom: 24px;
-    color: #000000;
+    color: #333333;
     font-family: 'AvenirNext';
     font-weight: 700;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 24px;
 }
 
 .profiles-page-modal-body-membership {
     margin-bottom: 24px;
-    color: #000000;
+    color: #333333;
     font-family: 'AvenirNext';
     font-weight: 400;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 22px;
 }
 </style>

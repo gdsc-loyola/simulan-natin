@@ -13,7 +13,7 @@
             <img :src="conData[conId]?.attributes.poster?.data.attributes.url" alt="" class="convention-page-poster">
             <div class="convention-page-container-article">
                 <div class="convention-page-article" :style="`color: ${conData[conId]?.attributes.theme};`">Read more about the Convention:</div>
-                <a class="convention-page-article-button btn" :href="`${conData[conId]?.attributes.article_url}`" role="button">Go to Article <img src="../assets/ConventionGoToArticleArrow.png" alt="" style="width:2.7778vw;height:2.7778vw;"></a>
+                <a class="convention-page-article-button btn" :href="`${conData[conId]?.attributes.article_url}`" target="_blank" role="button">Go to Article <img src="../assets/ConventionGoToArticleArrow.png" alt="" style="width:2.7778vw;height:2.7778vw;"></a>
             </div>
         </div>
         <div class="convention-page-head" :style="`color: ${conData[conId]?.attributes.theme};`">More Conventions</div>

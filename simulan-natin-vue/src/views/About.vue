@@ -11,7 +11,8 @@
         </section>
         <section  class="voter-engagement-awareness d-flex justify-content-evenly">
             <div class="voter-engagement-awareness-card">
-                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow"><div class="voter-engagement-awareness-head">Voter Engagement</div>
+                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow">
+                <div class="voter-engagement-awareness-head">Voter Engagement</div>
                 <div class="voter-engagement-awareness-body">To enhance civic education and active participation in different communities, settings, and/or sectors by:</div>
                 <ul class="voter-engagement-awareness-list">
                     <li>Providing issues-based learning sessions</li>
@@ -19,7 +20,8 @@
                 </ul>
             </div>
             <div class="voter-engagement-awareness-card">
-                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow"><div class="voter-engagement-awareness-head">Voter Awareness</div>
+                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow">
+                <div class="voter-engagement-awareness-head">Voter Awareness</div>
                 <div class="voter-engagement-awareness-body">To provide in-depth knowledge and appreciation of youth participation in electoral cycles through:</div>
                 <ul class="voter-engagement-awareness-list">
                     <li>Information campaigns based on youth concerns</li>
@@ -76,9 +78,9 @@
                         </div>
                         <div class="spearheaded-name">GoodGovPH</div>
                         <div class="spearheaded-socials">
-                            <a href="https://www.facebook.com/GoodGovPH"><div class="spearheaded-social"><img src="../assets/FaceBookLogo.png" alt="" class="w-100"></div></a>
-                            <a href="https://twitter.com/GoodGovPH"><div class="spearheaded-social spearheaded-social-space"><img src="../assets/TwitterLogo.png" alt="" class="w-100"></div></a>
-                            <a href="https://goodgov.ph/"><div class="spearheaded-social"><img src="../assets/WWWLogo.png" alt="" class="w-100"></div></a>
+                            <a href="https://www.facebook.com/GoodGovPH" target="_blank"><div class="spearheaded-social"><img src="../assets/FaceBookLogo.png" alt="" class="w-100"></div></a>
+                            <a href="https://twitter.com/GoodGovPH" target="_blank"><div class="spearheaded-social spearheaded-social-space"><img src="../assets/TwitterLogo.png" alt="" class="w-100"></div></a>
+                            <a href="https://goodgov.ph/" target="_blank"><div class="spearheaded-social"><img src="../assets/WWWLogo.png" alt="" class="w-100"></div></a>
                         </div>
                     </div>
                     <div class="spearheaded-description"><b>GoodGovPH</b> is led by a volunteer group that advocates for good governance in the Philippines. We are registered under the Securities and Exchange Commission (SEC) and the National Youth Commission (NYC).<br><br> The organization is composed of 200+ young civil servants, professionals, civic leaders, and students involved in the fields of governance and public policy. With the vision, <b>“mabuting pamamahala para sa bayan”</b>, the organization’s activities are anchored on civic engagement, education and training, and policy advocacy to empower and engage the youth towards active citizenship and good governance.</div>
@@ -90,9 +92,9 @@
                         </div>
                         <div class="spearheaded-name">DSC - Loyola</div>
                         <div class="spearheaded-socials">
-                            <a href="https://www.facebook.com/gdscloyola"><div class="spearheaded-social"><img src="../assets/FaceBookLogo.png" alt="" class="w-100"></div></a>
-                            <a href="https://twitter.com/gdscloyola/"><div class="spearheaded-social spearheaded-social-space"><img src="../assets/TwitterLogo.png" alt="" class="w-100"></div></a>
-                            <a href="https://www.gdscloyola.org/"><div class="spearheaded-social"><img src="../assets/WWWLogo.png" alt="" class="w-100"></div></a>
+                            <a href="https://www.facebook.com/gdscloyola" target="_blank"><div class="spearheaded-social"><img src="../assets/FaceBookLogo.png" alt="" class="w-100"></div></a>
+                            <a href="https://twitter.com/gdscloyola/" target="_blank"><div class="spearheaded-social spearheaded-social-space"><img src="../assets/TwitterLogo.png" alt="" class="w-100"></div></a>
+                            <a href="https://www.gdscloyola.org/" target="_blank"><div class="spearheaded-social"><img src="../assets/WWWLogo.png" alt="" class="w-100"></div></a>
                         </div>
                     </div>
                     <div class="spearheaded-description"><b>Developer Student Clubs Loyola</b> is a student organization powered by Google Developers that aims to build students’ skills and network by giving them access to different technologies, specifically Google Developer technologies like Android, Firebase, Angular, Flutter, Google Cloud Platform and many more. <br><br>Together, we learn in a peer-to-peer learning environment and build solutions for the community.</div>
@@ -266,7 +268,6 @@
     height: 39.1667vw !important; /*564px*/
     border: 0.2vw solid #293C92; /*2px*/
     box-sizing: border-box;
-    filter: drop-shadow(0 0.2vw 0.2778vw rgba(0, 0, 0, 0.25)); /*0 2px 4px*/
     border-radius: 2.7778vw !important; /*40px*/ 
 }
 

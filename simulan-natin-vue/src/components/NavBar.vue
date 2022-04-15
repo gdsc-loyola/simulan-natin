@@ -1,5 +1,5 @@
 <template>
-<nav class="nav-bar-component navbar navbar-expand-lg navbar-light bg-light">
+<nav class="nav-bar-component navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <div class="nav-bar-component-container-items container-fluid">
     <a class="navbar-brand" @click="goToHome()">
       <img src="../assets/SimulanNatin2022HorizontalLogosBlue.png" alt="SimulanNatin2022BLLogo" width="193" height="43">
@@ -55,6 +55,9 @@ export default {
   padding-bottom: 1.4931vw !important; /*21.5px*/
   padding-left: 5.5556vw !important; /*80px*/
   padding-right: 5.5556vw !important; /*80px*/
+  background: #FAFAFA;
+
+  box-shadow: 0 0.2778vw 0.5556vw rgba(0, 0, 0, 0.1); /*0px 4px 8px*/
 }
 
 .nav-bar-component-container-items {
@@ -63,6 +66,7 @@ export default {
 
 .nav-bar-component-item {
   padding-left: 5.5556vw !important; /*80px*/
+  color: #293C92 !important;
   font-family: 'AvenirNext-Bold';
   font-weight: 700;
   font-size: 18px;
@@ -72,5 +76,9 @@ export default {
 
 .nav-bar-component-item-color {
   color: #293C92 !important;
+}
+
+.nav-bar-component-item-color:hover {
+  color: #101E5F !important;
 }
 </style>

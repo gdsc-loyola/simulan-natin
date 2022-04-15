@@ -5,12 +5,14 @@
                 <img src="../assets/SimulanNatin2022HorizontalLogosWhite.png" alt="SimulanNatin2022WHLogo" class="footer-component-image">
                 <div class="footer-component-copyright">© 2022 GoodGov PH. All Rights Reserved.</div>
             </div>
-            <a href="https://www.facebook.com/GoodGovPH"><div class="footer-component-logo"><img src="../assets/FaceBookLogoBlue.png" alt="" class="h-100"></div></a>
-            <a href="https://twitter.com/GoodGovPH"><div class="footer-component-logo"><img src="../assets/TwitterLogoBlue.png" alt="" class="w-100"></div></a>
-            <a href="https://goodgov.ph/"><div class="footer-component-logo"><img src="../assets/WWWLogoBlue.png" alt="" class="h-100"></div></a>
+            <a href="https://www.facebook.com/GoodGovPH" target="_blank"><div class="footer-component-logo"><img src="../assets/FaceBookLogoBlue.png" alt="" class="h-100"></div></a>
+            <a href="https://twitter.com/GoodGovPH" target="_blank"><div class="footer-component-logo"><img src="../assets/TwitterLogoBlue.png" alt="" class="w-100"></div></a>
+            <a href="https://goodgov.ph/" target="_blank"><div class="footer-component-logo"><img src="../assets/WWWLogoBlue.png" alt="" class="h-100"></div></a>
         </div>
         <div class="footer-component-bottom">
-            Passionately Designed and Developed by Developer Student Clubs Loyola
+            <a href="https://www.gdscloyola.org/" target="_blank">
+                Passionately Designed and Developed by Developer Student Clubs Loyola
+            </a>
         </div>
     </div>
 </template>
@@ -75,4 +77,13 @@ export default {
     justify-content: center;
     align-items: center;
 }
+
+a { 
+    color: inherit; 
+    text-decoration: none;
+} 
+
+a:hover { 
+    color: #101E5F !important;
+} 
 </style>

@@ -58,7 +58,7 @@ export default {
 <style scoped>
 /* Relative 1440 */
 .home-page-head {
-    margin-left: 11.1111vw !important; /*160px*/
+    margin: 0 7.3611vw !important; /*0 106px*/
     width: 35.2778vw !important; /*508px*/
     color: #293C92;
     font-family: 'CoolBritannia';

@@ -2,7 +2,7 @@
   <div>
     <section class="representatives-page">
       <div class="representatives-page-head">Representative Database</div>
-      <div class="representatives-page-body">With information on 52 candidates across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
+      <div class="representatives-page-body">With information on 52 representatives across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
       <div class="representatives-page-note">*The data that the team has collated is the main basis for the representatives’ respective platforms, primarily basing from the laws they have enacted.</div>
       <div class="representatives-page-container-filter">
 
@@ -164,7 +164,7 @@ export default {
 
 .representatives-page-head {
   padding-bottom: 1.6667vw !important; /*24px*/
-  color: #000000;
+  color: #333333;
   font-family: 'AvenirNext-Bold';
   font-weight: 700;
   font-size: 2.7778vw; /*40px*/
@@ -175,7 +175,7 @@ export default {
   padding-bottom: 1.6667vw !important; /*24px*/
   width: 46.4583vw !important; /*669px*/
   font-family: "AvenirNext";
-  color: #000000;
+  color: #333333;
   font-weight: 700;
   font-size: 1.6667vw; /*24px*/
   line-height: 2.2222vw; /*32px*/
@@ -184,7 +184,7 @@ export default {
 .representatives-page-note {
   padding-bottom: 4.4444vw !important; /*64px*/
   width: 47.9167vw !important; /*690px*/
-  color: #000000; 
+  color: #333333; 
   font-family: 'AvenirNext-Italic';
   font-weight: 700; 
   font-size: 1.1111vw; /*16px*/
