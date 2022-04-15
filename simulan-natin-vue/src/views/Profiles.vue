@@ -47,9 +47,8 @@
 </template>
 
 <script>
-import BillCard from '../components/BillCard.vue'
-
 import axios from 'axios'
+import BillCard from '../components/BillCard.vue'
 
 export default {
   name: 'App',
