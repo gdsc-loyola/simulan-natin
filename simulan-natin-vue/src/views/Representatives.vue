@@ -5,7 +5,6 @@
       <div class="representatives-page-body">With information on 52 representatives across multiple regions in the country, find a representative that aligns with your advocacy* as we work towards a better future.</div>
       <div class="representatives-page-note">*The data that the team has collated is the main basis for the representatives’ respective platforms, primarily basing from the laws they have enacted.</div>
       <div class="representatives-page-container-filter">
-
         <!-- location filter -->
         <div class="filter-button-component-main dropdown">
           <button type="button" class="btn dropdown-toggle filter-button-component" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,7 +26,11 @@
           <span class="badge rounded-pill filter-button-component-loc-adv-filter" :style="`background: ${adv.attributes.bg_color}; color: ${adv.attributes.text_color};`" v-for="adv in advFilter" :key="adv.id" @click="removeAdvFilter(adv)">{{ adv.attributes.name }}<button class="btn-close" style="width:0.6944vw;height:0.6944vw;padding:0;margin-left:0.5vw;"></button></span>
         </div>
       </div>
+      <section class="loading-container">
+        <img v-if="loading == true" class="loading" src="../assets/SimulanNatin2022LoadingGIF.gif">
+      </section>
     </section>
+    <section v-if="filtered_reps.length == 0" class="representatives-page-cards">No Representative with this filter</section>
     <section class="representatives-page-cards">
       <RepresentativeCard v-for="representative in filtered_reps" :key="representative.id" :repData="representative" @click="goToProfiles(representative.id)"/>
     </section>
@@ -46,6 +49,7 @@ export default {
   },
   data() {
     return {
+      loading: true,
       representatives: [],
       filtered_reps: [],
       combined_filters: [],
@@ -65,6 +69,7 @@ export default {
     const rep = await axios.get("https://simulan-natin-cms.herokuapp.com/api/representatives?populate=*");
     const pro = await axios.get("https://simulan-natin-cms.herokuapp.com/api/provinces?populate=*");
     const adv = await axios.get("https://simulan-natin-cms.herokuapp.com/api/advocacies?populate=*");
+    this.loading = false
     
     function compare (a, b) {
       if (a.attributes.name < b.attributes.name) {
@@ -249,5 +254,12 @@ export default {
   border-radius: 6.875vw; /*99px*/
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.loading-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #FAFBFA;
 }
 </style>
