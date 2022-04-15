@@ -10,13 +10,13 @@
                     <div class="profiles-page-name">{{ repData?.name }}</div>
                     <div class="profiles-page-location-party">{{ repData?.province?.data?.attributes.name }}, District {{ repData?.district?.data?.attributes.number }}</div>
                     <div class="profiles-page-location-party">{{ repData?.political_party }}</div>
-                    <div>
+                    <div class="d-flex">
                         <!-- Button trigger modal -->
                         <button type="button" class="profiles-page-more-information btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         MORE INFORMATION
                         </button>
                     </div>
-                    <div>
+                    <div class="d-flex">
                         <div class="profiles-page-advocacy-pill badge rounded-pill" :style="`background: ${repData?.advocacies?.data[0]?.attributes.bg_color}; color: ${repData?.advocacies?.data[0]?.attributes.text_color};`">{{ repData?.advocacies?.data[0]?.attributes.name }}</div>
                     </div>
                 </div>
