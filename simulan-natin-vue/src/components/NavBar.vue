@@ -30,15 +30,19 @@ export default {
   methods: {
     goToHome() {
       this.$router.push('/');
+      window.scrollTo(0, 0);
     },
     goToRepresentatives() {
         this.$router.push('/representatives');
+        window.scrollTo(0, 0);
     },
     goToConventions() {
         this.$router.push('/conventions');
+        window.scrollTo(0, 0);
     },
     goToAbout() {
       this.$router.push('/about');
+      window.scrollTo(0, 0);
     },
   }
 }
