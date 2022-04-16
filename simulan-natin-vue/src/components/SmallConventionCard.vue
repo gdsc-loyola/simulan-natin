@@ -28,6 +28,10 @@ export default {
     cursor: pointer;
 }
 
+.small-convention-card-component:hover {
+    filter: drop-shadow(0 1.1111vw 1.3889vw rgba(0, 0, 0, 0.25)); /*0px 16px 20px*/
+}
+
 .small-convention-card-component-image {
     width: 26.6667vw !important; /*384px*/
     height: 20vw !important; /*288px*/

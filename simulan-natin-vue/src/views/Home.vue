@@ -10,8 +10,12 @@
         </section>
         <section class="home-page-map">
             <div class="home-page-body">They’re making a difference in <b>YOUR</b> neighborhood.</div>
-            <!-- <img src="../assets/HomeWordCloud.png" alt="" class="home-page-map-image"> -->
-            <HomeInteractiveMap/>
+            <div v-if="windowWidth>=800">
+                <HomeInteractiveMap/>
+            </div>   
+            <div v-else>
+                <img src="../assets/HomeWordCloud.png" alt="" class="home-page-map-image">
+            </div>    
         </section>
         <section class="home-page-conventions">
             <div class="home-page-body">Take <b>YOUR</b> first step towards enabling good governance through our virtual conventions!</div>
@@ -39,12 +43,17 @@ export default {
   data() {
     return {
       conventions: [],
+      windowWidth: window.innerWidth,
+      success: false
     };
   },
   async mounted() {
     const con = await axios.get("https://simulan-natin-cms.herokuapp.com/api/conventions?populate=*")
-
     this.conventions = con.data.data
+
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth
+    }
   },
   methods: {
     goToConvention(conId) {
@@ -97,7 +106,7 @@ export default {
 
 .home-page-map {
     padding-top: 6.25vw !important; /*90px*/
-    height: 62.5vw !important; /*900px*/
+    padding-bottom: 6.25vw !important; /*90px*/
 
     text-align: center !important;
 }

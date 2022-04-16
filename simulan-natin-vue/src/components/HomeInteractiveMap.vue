@@ -13,7 +13,7 @@ export default {
 <style scoped>
 /* Relative 1440 */
 .home-interactive-map-component {
-    width: 55.5556vw !important; /*800px*/
-    height: 48.6111vw !important; /*700px*/
+    width: 800px !important; /*800px*/
+    height: 700px !important; /*700px*/
 }
 </style>

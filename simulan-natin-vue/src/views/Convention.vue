@@ -11,7 +11,13 @@
         </div>
         <div class="convention-page-container-poster">
             <img :src="conData[conId]?.attributes.poster?.data.attributes.url" alt="" class="convention-page-poster">
-            <div class="convention-page-container-article">
+            <div class="convention-page-container-article" v-if='conData[conId]?.attributes.article_url=="upcoming"'>
+                <div class="convention-page-article" :style="`color: ${conData[conId]?.attributes.theme};`">Article Coming Soon!</div>
+            </div>
+            <div v-else-if='conData[conId]?.attributes.article_url=="none"'>
+                <!-- empty -->
+            </div>
+            <div class="convention-page-container-article" v-else>
                 <div class="convention-page-article" :style="`color: ${conData[conId]?.attributes.theme};`">Read more about the Convention:</div>
                 <a class="convention-page-article-button btn" :href="`${conData[conId]?.attributes.article_url}`" target="_blank" role="button">Go to Article <img src="../assets/ConventionGoToArticleArrow.png" alt="" style="width:2.7778vw;height:2.7778vw;"></a>
             </div>
@@ -117,7 +123,7 @@ export default {
 }
 
 .convention-page-article {
-    width: 31.25vw !important; /*450px*/ 
+    width: 31.875vw !important; /*459px*/ 
     font-family: 'CoolBritannia';
     font-weight: 400;
     font-size: 4.4444vw; /*64px*/
@@ -138,6 +144,7 @@ export default {
 }
 
 .convention-page-container-cons {
+    padding: 1.4583vw 0 !important; /*21px*/  
     text-align: center !important;
 }
 </style>

@@ -37,6 +37,10 @@ export default {
     cursor: pointer;
 }
 
+.convention-card-component:hover {
+    filter: drop-shadow(0 1.1111vw 1.3889vw rgba(0, 0, 0, 0.25)); /*0px 16px 20px*/
+}
+
 .convention-card-component-image {
     width: 40.8333vw !important; /*588px*/
     height: 30.625vw !important; /*441px*/

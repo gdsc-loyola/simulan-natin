@@ -11,8 +11,10 @@
         </section>
         <section  class="voter-engagement-awareness d-flex justify-content-evenly">
             <div class="voter-engagement-awareness-card">
-                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow">
-                <div class="voter-engagement-awareness-head">Voter Engagement</div>
+                <div class="d-flex align-items-end">
+                    <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow">
+                    <div class="voter-engagement-awareness-head">Voter Engagement</div>
+                </div>
                 <div class="voter-engagement-awareness-body">To enhance civic education and active participation in different communities, settings, and/or sectors by:</div>
                 <ul class="voter-engagement-awareness-list">
                     <li>Providing issues-based learning sessions</li>
@@ -20,8 +22,10 @@
                 </ul>
             </div>
             <div class="voter-engagement-awareness-card">
-                <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow">
-                <div class="voter-engagement-awareness-head">Voter Awareness</div>
+                <div class="d-flex align-items-end">
+                    <img src="../assets/AboutVoterArrow.png" alt="" class="voter-engagement-awareness-arrow">
+                    <div class="voter-engagement-awareness-head">Voter Awareness</div>
+                </div>
                 <div class="voter-engagement-awareness-body">To provide in-depth knowledge and appreciation of youth participation in electoral cycles through:</div>
                 <ul class="voter-engagement-awareness-list">
                     <li>Information campaigns based on youth concerns</li>

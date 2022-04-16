@@ -26,8 +26,8 @@
           <span class="badge rounded-pill filter-button-component-loc-adv-filter" :style="`background: ${adv.attributes.bg_color}; color: ${adv.attributes.text_color};`" v-for="adv in advFilter" :key="adv.id" @click="removeAdvFilter(adv)">{{ adv.attributes.name }}<button class="btn-close" style="width:0.6944vw;height:0.6944vw;padding:0;margin-left:0.5vw;"></button></span>
         </div>
       </div>
-      <section class="loading-container">
-        <img v-if="loading == true" class="loading" src="../assets/SimulanNatin2022LoadingGIF.gif">
+      <section class="representatives-page-loading-container">
+        <img v-if="loading == true" class="representatives-page-loading loading" src="../assets/SimulanNatin2022LoadingGIF.gif">
       </section>
     </section>
     <section v-if="filtered_reps.length == 0" class="representatives-page-cards">No Representative with this filter</section>
@@ -159,6 +159,7 @@ export default {
   padding-right: 8.3333vw !important; /*120px*/
 
   background-image: url('../assets/RepresentativesBG.png');
+  background-color: #FAFBFA;
   background-repeat: no-repeat;
   max-width: 100%;
   /* background-attachment: fixed;
@@ -198,10 +199,12 @@ export default {
 
 .representatives-page-container-filter {
   padding-top: 1.6667vw !important; /*24px*/
+  background-color: #FAFBFA;
 }
 
 .representatives-page-cards {
   padding-bottom: 3.6111vw !important; /*52px*/
+  background-color: #FAFBFA;
   text-align: center !important;
 }
 
@@ -256,7 +259,11 @@ export default {
   cursor: pointer;
 }
 
-.loading-container {
+.representatives-page-loading {
+  width: 30vw !important; /*432px*/
+}
+
+.representatives-page-loading-container {
   display: flex;
   width: 100%;
   justify-content: center;

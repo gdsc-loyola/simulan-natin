@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="bill-card-component-bottom d-flex flex-column">
-      <div class="bill-card-component-bottom-act-title"><b>{{ billData.attributes.title }}</b></div>
-      <div>Status: <b>{{ billData.attributes.status }}</b></div>
+      <div class="bill-card-component-bottom-act-title overflow-auto"><b>{{ billData.attributes.title }}</b></div><br>
+      <div class="overflow-auto">Status: <b>{{ billData.attributes.status }}</b></div>
     </div>
   </div>
 </template>
@@ -97,6 +97,6 @@ export default {
 }
 
 .bill-card-component-bottom-act-title {
-  height: 6.25vw !important; /*90px*/
+  height: 5.1389vw !important; /*74px*/
 }
 </style>
